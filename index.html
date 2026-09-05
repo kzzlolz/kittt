@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kittt</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(72, 190, 210, 0.75),
+            rgba(255, 255, 255, 0.95)
+        ),
+        url("https://media.giphy.com/media/l0MYB8Ory7HjuBxK0/giphy.gif");
+
+    background-size: cover;
+    background-position: center;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* Floating hearts */
+
+.heart {
+    position: fixed;
+    color: crimson;
+    opacity: 0.4;
+    font-size: 25px;
+    pointer-events: none;
+    animation: floatHeart 7s linear infinite;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    bottom: -30px;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 25%;
+    bottom: -40px;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+    left: 50%;
+    bottom: -20px;
+    animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+    left: 75%;
+    bottom: -30px;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(5) {
+    left: 90%;
+    bottom: -40px;
+    animation-delay: 3s;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) scale(0.8) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-50vh) scale(1.1) rotate(15deg);
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(0.8) rotate(-15deg);
+    }
+}
+
+
+/* Entire layout */
+
+.layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+
+/* Main widget */
+
+.widget {
+    width: 850px;
+    max-width: 70vw;
+    padding: 22px;
+
+    border: 3px solid rgba(54, 190, 195, 0.8);
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 15px rgba(44, 190, 200, 0.8),
+        0 0 45px rgba(44, 190, 200, 0.35);
+
+    animation: widgetFloat 4s ease-in-out infinite;
+
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease;
+}
+
+@keyframes widgetFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* Profile */
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.avatar-container {
+    position: relative;
+    width: 85px;
+    height: 85px;
+}
+
+.avatar {
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+    border: 3px solid white;
+
+    object-fit: cover;
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,0.9),
+        0 0 25px rgba(54,190,195,0.8);
+}
+
+.avatar-decoration {
+    position: absolute;
+    inset: -7px;
+
+    border: 2px dashed rgba(255,255,255,0.9);
+
+    border-radius: 50%;
+
+    animation: spinDecoration 8s linear infinite;
+}
+
+@keyframes spinDecoration {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Username */
+
+.username {
+    font-family: "Press Start 2P", monospace;
+    font-size: 22px;
+
+    background: linear-gradient(
+        90deg,
+        white,
+        #55d9ff,
+        white,
+        #55d9ff,
+        white
+    );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: prism 3s linear infinite;
+}
+
+@keyframes prism {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 250% center;
+    }
+}
+
+.pronouns {
+    margin-top: 8px;
+
+    font-family: "Dancing Script", cursive;
+    font-size: 23px;
+
+    color: #ff77aa;
+}
+
+
+/* About */
+
+.about {
+    padding: 22px;
+
+    min-height: 170px;
+
+    border-radius: 18px;
+
+    background: rgba(8, 65, 95, 0.82);
+
+    border: 1px solid rgba(120, 220, 240, 0.5);
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 20, 40, 0.35),
+        0 0 15px rgba(20, 120, 150, 0.25);
+
+    margin-bottom: 20px;
+}
+
+.about-title {
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
+
+    color: #bff6ff;
+
+    margin-bottom: 15px;
+}
+
+.about-text {
+    color: #d9f7ff;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.about-text p {
+    margin: 0 0 15px 0;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Stats */
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.stat {
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: rgba(8, 65, 95, 0.72);
+
+    border: 1px solid rgba(120, 220, 240, 0.45);
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 20, 40, 0.25),
+        0 0 10px rgba(20, 120, 150, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.stat:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 20, 40, 0.25),
+        0 0 18px rgba(54, 190, 195, 0.35);
+}
+
+.stat-label {
+    color: #bff6ff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.stat-value {
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+
+/* Music Player */
+
+.music-player {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 14px;
+
+    margin-bottom: 20px;
+
+    border-radius: 18px;
+
+    background: rgba(8, 65, 95, 0.7);
+
+    border: 1px solid rgba(120, 220, 240, 0.5);
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 20, 40, 0.25),
+        0 0 12px rgba(20, 120, 150, 0.2);
+}
+
+.album {
+    width: 70px;
+    height: 70px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border: 2px solid rgba(255,255,255,0.7);
+
+    box-shadow:
+        0 0 10px rgba(54,190,195,0.6);
+}
+
+.song-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.song-name {
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+.artist {
+    color: #bff6ff;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+.progress {
+    width: 100%;
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.25);
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    border-radius: 10px;
+
+    background: #55d9ff;
+
+    animation: musicProgress 60s linear infinite;
+}
+
+@keyframes musicProgress {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.play-button {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(54,190,195,0.8);
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.12);
+
+    background: rgba(44,170,185,1);
+
+    box-shadow:
+        0 0 15px rgba(54,190,195,0.7);
+}
+
+
+/* Buttons */
+
+.links {
+    display: flex;
+    gap: 15px;
+}
+
+.link-button {
+    flex: 1;
+
+    padding: 14px;
+
+    border-radius: 15px;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    color: white;
+
+    font-weight: bold;
+
+    background: rgba(40,160,175,0.7);
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.link-button:hover {
+    transform: translateY(-7px) scale(1.04);
+
+    background: rgba(30,140,160,0.9);
+
+    box-shadow:
+        0 10px 25px rgba(30,150,160,0.35);
+}
+
+
+/* Side banner */
+
+.banner-frame {
+    width: 280px;
+    aspect-ratio: 9 / 16;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    border: 3px solid rgba(54, 190, 195, 0.8);
+
+    background: rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 0 15px rgba(44,190,200,0.8),
+        0 0 35px rgba(44,190,200,0.35);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.banner-frame:hover {
+    transform: translateY(-5px) scale(1.02);
+
+    box-shadow:
+        0 0 20px rgba(44,190,200,0.9),
+        0 0 45px rgba(44,190,200,0.45);
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .layout {
+        flex-direction: column;
+
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+
+    .widget {
+        width: 850px;
+        max-width: 92vw;
+    }
+
+    .banner-frame {
+        width: 220px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .widget {
+        padding: 15px;
+    }
+
+    .username {
+        font-size: 15px;
+    }
+
+    .links {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+
+
+<!-- Everything -->
+
+<div class="layout">
+
+    <!-- Main Profile Widget -->
+
+    <div class="widget">
+
+        <div class="profile">
+
+            <div class="avatar-container">
+
+                <img
+                    class="avatar"
+                    src="https://media1.tenor.com/m/uISlWBURL7MAAAAd/haimiya.gif"
+                    alt="Kittt Avatar"
+                >
+
+                <div class="avatar-decoration"></div>
+
+            </div>
+
+            <div>
+
+                <div class="username">
+                    Kittt
+                </div>
+
+                <div class="pronouns">
+                    she/her
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- About Me -->
+
+        <div class="about">
+
+            <div class="about-title">
+                about me
+            </div>
+
+            <div class="about-text">
+
+                <p>I love cats!</p>
+
+                <p>I mainly play games, do movie nights, or sleep.</p>
+
+                <p>"As long as you are happy, I am also happy."</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Stats -->
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="stat-label">
+                    🎂 Birthday
+                </div>
+
+                <div class="stat-value">
+                    16/06
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-label">
+                    🍜 Fav Food
+                </div>
+
+                <div class="stat-value">
+                    Ramen
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-label">
+                    🐱 Fav Animals
+                </div>
+
+                <div class="stat-value">
+                    Cats & Rabbits
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-label">
+                    🕐 Current Time
+                </div>
+
+                <div class="stat-value" id="currentTime">
+                    Loading...
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Music -->
+
+        <div class="music-player">
+
+            <img
+                class="album"
+                src="https://i.scdn.co/image/ab67616d0000b273aeb64471596b00f380975ceb"
+                alt="Bad Romance Album Art"
+            >
+
+            <div class="song-info">
+
+                <div class="song-name">
+                    Bad Romance
+                </div>
+
+                <div class="artist">
+                    Lady Gaga
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill"></div>
+                </div>
+
+            </div>
+
+            <button
+                class="play-button"
+                id="playButton"
+            >
+                ▶
+            </button>
+
+        </div>
+
+
+        <!-- Links -->
+
+        <div class="links">
+
+            <a
+                class="link-button"
+                href="https://discord.com/users/1209411379178635345"
+                target="_blank"
+            >
+                💬 Discord
+            </a>
+
+            <a
+                class="link-button"
+                href="https://discord.gg/rdcdZ56S4M"
+                target="_blank"
+            >
+                🏠 My Server
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Side Banner -->
+
+    <div class="banner-frame">
+
+        <img
+            class="banner"
+            src="https://i.ibb.co/SXm9dhtt/13e349bebec8c99c845417a4cb0fcf9c.jpg"
+            alt="Kittt Banner"
+        >
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* Music button */
+
+const playButton =
+    document.getElementById("playButton");
+
+let playing = false;
+
+playButton.addEventListener("click", () => {
+
+    playing = !playing;
+
+    if (playing) {
+        playButton.textContent = "❚❚";
+    } else {
+        playButton.textContent = "▶";
+    }
+
+});
+
+
+/* Live Singapore time */
+
+function updateTime() {
+
+    const now = new Date();
+
+    const singaporeTime =
+        now.toLocaleTimeString("en-SG", {
+            timeZone: "Asia/Singapore",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false
+        });
+
+    document.getElementById("currentTime").textContent =
+        singaporeTime;
+
+}
+
+updateTime();
+
+setInterval(updateTime, 1000);
+
+
+/* Mouse parallax */
+
+const widget =
+    document.querySelector(".widget");
+
+document.addEventListener("mousemove", (event) => {
+
+    const x =
+        event.clientX / window.innerWidth - 0.5;
+
+    const y =
+        event.clientY / window.innerHeight - 0.5;
+
+    const rotateX = y * -2;
+    const rotateY = x * 2;
+
+    widget.style.transform =
+        `translateY(-2px)
+         rotateX(${rotateX}deg)
+         rotateY(${rotateY}deg)`;
+
+});
+
+document.addEventListener("mouseleave", () => {
+
+    widget.style.transform =
+        "translateY(0) rotateX(0) rotateY(0)";
+
+});
+
+</script>
+
+</body>
+</html>
