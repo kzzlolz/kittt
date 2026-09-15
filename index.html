@@ -426,6 +426,18 @@ body {
     border-radius: 10px;
 
     background: #ff9ebb;
+
+    animation: musicProgress 60s linear infinite;
+}
+
+@keyframes musicProgress {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
 
 .play-button {
@@ -645,7 +657,7 @@ body {
 
                 <p>I mainly play games, or sleep all day.</p>
 
-                <p>kawaii Japan girl with stupid friends :3</p>
+                <p>"As long as you are happy, I am also happy."</p>
 
             </div>
 
@@ -727,7 +739,7 @@ body {
                 </div>
 
                 <div class="progress">
-                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-fill"></div>
                 </div>
 
             </div>
@@ -736,12 +748,8 @@ body {
                 class="play-button"
                 id="playButton"
             >
-                ▶
+                ❚❚
             </button>
-
-            <audio id="bgMusic" loop>
-                <source src="https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg" type="audio/ogg">
-            </audio>
 
         </div>
 
@@ -762,14 +770,8 @@ body {
     </div>
 
 
-    <div class="banner-frame">
-
-        <img
-            class="banner"
-            src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp4M3c1aHl6eGRvOXA2N3IxdjF0ZHVlZzZtd2psMDFmcm9vcjlyNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oz8xIdVQJqV8rBbsQ/giphy.gif"
-            alt="Sakura Tree Banner"
-        >
-
+    <div class="banner-frame" style="background: #000; display: flex; justify-content: center; align-items: center;">
+        <iframe src="https://giphy.com/embed/AdtvZ8gu9gZ32" width="100%" height="100%" style="position:relative; pointer-events:none;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     </div>
 
 </div>
@@ -777,31 +779,23 @@ body {
 
 <script>
 
-/* Real Music Player Logic */
+/* Music button simulation keeping visual auto-play look */
 
-const playButton = document.getElementById("playButton");
-const bgMusic = document.getElementById("bgMusic");
-const progressFill = document.getElementById("progressFill");
+const playButton =
+    document.getElementById("playButton");
 
-let playing = false;
+let playing = true;
 
 playButton.addEventListener("click", () => {
+
     playing = !playing;
 
     if (playing) {
-        bgMusic.play().catch(e => console.log("Audio play blocked"));
         playButton.textContent = "❚❚";
     } else {
-        bgMusic.pause();
         playButton.textContent = "▶";
     }
-});
 
-bgMusic.addEventListener("timeupdate", () => {
-    if (bgMusic.duration) {
-        const percent = (bgMusic.currentTime / bgMusic.duration) * 100;
-        progressFill.style.width = percent + "%";
-    }
 });
 
 
