@@ -6,18 +6,16 @@
 
 <title>Kittt's Profile</title>
 
-<!-- Link Preview -->
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kittt's Profile">
-<meta property="og:description" content="Something little about me ♡ ">
-<meta property="og:image" content="https://media1.tenor.com/m/386r4N29_sAAAAAd/sakura-cherry-blossom.gif">
+<meta property="og:description" content="kawaii Japan girl with stupid friends :3">
+<meta property="og:image" content="https://i.ibb.co/SXm9dhtt/13e349bebec8c99c845417a4cb0fcf9c.jpg">
 <meta property="og:url" content="https://kzzlolz.github.io/kittt/">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kittt's Profile">
-<meta name="twitter:description" content="Something little about me ♡ ">
-<meta name="twitter:image" content="https://media1.tenor.com/m/386r4N29_sAAAAAd/sakura-cherry-blossom.gif">
+<meta name="twitter:description" content="kawaii Japan girl with stupid friends :3">
+<meta name="twitter:image" content="https://i.ibb.co/SXm9dhtt/13e349bebec8c99c845417a4cb0fcf9c.jpg">
 
 <link rel="icon" type="image/jpeg" href="https://i.ibb.co/vvHLZwKm/8ded2bceb5a09285ffc2dc9fee6a87b8.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -428,18 +426,6 @@ body {
     border-radius: 10px;
 
     background: #ff9ebb;
-
-    animation: musicProgress 60s linear infinite;
-}
-
-@keyframes musicProgress {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 100%;
-    }
 }
 
 .play-button {
@@ -556,7 +542,7 @@ body {
 
     display: block;
 
-    object-fit: cover; /* Changed to cover so the GIF fills the vertical frame nicely */
+    object-fit: cover;
 
     border-radius: 18px;
 }
@@ -607,20 +593,14 @@ body {
 
 <body>
 
-<!-- Floating hearts -->
-
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 
-
-<!-- Everything -->
 
 <div class="layout">
-
-    <!-- Main Profile Widget -->
 
     <div class="widget">
 
@@ -630,7 +610,7 @@ body {
 
                 <img
                     class="avatar"
-                    src="https://media1.tenor.com/m/uISlWBURL7MAAAAd/haimiya.gif"
+                    src="https://i.ibb.co/SXm9dhtt/13e349bebec8c99c845417a4cb0fcf9c.jpg"
                     alt="Kittt Avatar"
                 >
 
@@ -653,8 +633,6 @@ body {
         </div>
 
 
-        <!-- About Me -->
-
         <div class="about">
 
             <div class="about-title">
@@ -663,7 +641,7 @@ body {
 
             <div class="about-text">
 
-                <p>Introvert</p>
+                <p>kawaii Japan girl with stupid friends :3</p>
 
                 <p>I mainly play games, or sleep all day.</p>
 
@@ -673,8 +651,6 @@ body {
 
         </div>
 
-
-        <!-- Stats -->
 
         <div class="stats">
 
@@ -732,8 +708,6 @@ body {
         </div>
 
 
-        <!-- Music -->
-
         <div class="music-player">
 
             <img
@@ -753,7 +727,7 @@ body {
                 </div>
 
                 <div class="progress">
-                    <div class="progress-fill"></div>
+                    <div class="progress-fill" id="progressFill"></div>
                 </div>
 
             </div>
@@ -765,10 +739,12 @@ body {
                 ▶
             </button>
 
+            <audio id="bgMusic" loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-cute.mp3" type="audio/mp3">
+            </audio>
+
         </div>
 
-
-        <!-- Links -->
 
         <div class="links">
 
@@ -786,13 +762,11 @@ body {
     </div>
 
 
-    <!-- Side Banner (Sakura Tree GIF) -->
-
     <div class="banner-frame">
 
         <img
             class="banner"
-            src="https://media1.tenor.com/m/386r4N29_sAAAAAd/sakura-cherry-blossom.gif"
+            src="https://media2.giphy.com/media/xT5LMGfRsLUsmDNYSY/giphy.gif"
             alt="Sakura Tree Banner"
         >
 
@@ -803,23 +777,32 @@ body {
 
 <script>
 
-/* Music button */
+/* Real Music Player Logic */
 
-const playButton =
-    document.getElementById("playButton");
+const playButton = document.getElementById("playButton");
+const bgMusic = document.getElementById("bgMusic");
+const progressFill = document.getElementById("progressFill");
 
 let playing = false;
 
 playButton.addEventListener("click", () => {
-
     playing = !playing;
 
     if (playing) {
+        bgMusic.play().catch(e => console.log("Audio play blocked or needs interaction"));
         playButton.textContent = "❚❚";
     } else {
+        bgMusic.pause();
         playButton.textContent = "▶";
     }
+});
 
+// Update progress bar dynamically based on current audio playback
+bgMusic.addEventListener("timeupdate", () => {
+    if (bgMusic.duration) {
+        const percent = (bgMusic.currentTime / bgMusic.duration) * 100;
+        progressFill.style.width = percent + "%";
+    }
 });
 
 
