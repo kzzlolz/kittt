@@ -134,26 +134,74 @@ body {
     60%, 100% { border-color: #ffb6c1; box-shadow: 0 0 15px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 192, 203, 0.5); }
 }
 
-/* Text replacement ":3" with slow hovering style */
-.pfp-text-doodle {
+/* Animated Rabbit replacing ":3" - pops out from top-right and sits above PFP in front of flowers/sparkles (z-index: 6) */
+.rabbit-doodle {
     position: absolute;
-    top: -22px;
+    top: -24px;
     right: -24px;
-    z-index: 6; /* In front of sparkles and everything */
+    width: 44px;
+    height: 44px;
+    z-index: 6; 
     pointer-events: none;
-    font-family: "Press Start 2P", monospace;
-    font-size: 16px;
-    color: #ff4d88;
-    text-shadow: 0 0 8px rgba(255, 182, 193, 0.9), 1px 1px 0px #fff;
-    animation: textSlowHover 4s ease-in-out infinite;
+    animation: rabbitPopAndSettle 5s ease-in-out infinite;
 }
 
-@keyframes textSlowHover {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-6px) rotate(4deg); }
+@keyframes rabbitPopAndSettle {
+    0% {
+        transform: translate(25px, 25px) scale(0) rotate(-20deg);
+        opacity: 0;
+    }
+    15% {
+        transform: translate(0px, 0px) scale(1.15) rotate(5deg);
+        opacity: 1;
+    }
+    25%, 85% {
+        transform: translate(0px, 0px) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    92% {
+        transform: translate(10px, 15px) scale(0.5) rotate(15deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(25px, 25px) scale(0) rotate(-20deg);
+        opacity: 0;
+    }
 }
 
-/* Exactly 3 sparkles placed closely around the PFP, now layered in FRONT of flowers (z-index: 5) */
+.rabbit-body {
+    animation: rabbitBounce 1.5s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes rabbitBounce {
+    0%, 100% { transform: translateY(0) scaleY(1); }
+    50% { transform: translateY(-3px) scaleY(1.05); }
+}
+
+.rabbit-ear-left {
+    animation: earTwitchLeft 3s ease-in-out infinite;
+    transform-origin: bottom left;
+}
+
+.rabbit-ear-right {
+    animation: earTwitchRight 3s ease-in-out infinite 0.5s;
+    transform-origin: bottom right;
+}
+
+@keyframes earTwitchLeft {
+    0%, 70%, 100% { transform: rotate(0deg); }
+    75% { transform: rotate(-8deg); }
+    82% { transform: rotate(3deg); }
+}
+
+@keyframes earTwitchRight {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    65% { transform: rotate(10deg); }
+    72% { transform: rotate(-4deg); }
+}
+
+/* Exactly 3 sparkles placed closely around the PFP, layered in FRONT of flowers (z-index: 5) */
 .sparkle-1 {
     position: absolute;
     top: 2px;
@@ -192,7 +240,7 @@ body {
     50% { transform: scale(1.2); opacity: 1; }
 }
 
-/* Flowers revolving closely, packed and orderly around PFP (z-index: 3) */
+/* Even smaller and more tightly packed flowers revolving closely around PFP (z-index: 3) */
 .pfp-outline-flowers {
     position: absolute;
     inset: -1px;
@@ -205,7 +253,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    animation: spinFlowers 16s linear infinite;
+    animation: spinFlowers 20s linear infinite;
 }
 
 @keyframes spinFlowers {
@@ -215,25 +263,31 @@ body {
 
 .smol-outline-flower {
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
 }
 
-/* Tightly packed circle perfectly hugging the avatar container */
+/* Tightly packed circle perfectly hugging the avatar container with 20 smaller flowers */
 .flower-1  { top: 2px; left: 47.5px; transform: translate(-50%, -50%); }
-.flower-2  { top: 6px; left: 67px; transform: translate(-50%, -50%); }
-.flower-3  { top: 18px; left: 83px; transform: translate(-50%, -50%); }
-.flower-4  { top: 35.5px; left: 93px; transform: translate(-50%, -50%); }
-.flower-5  { top: 57.5px; left: 93px; transform: translate(-50%, -50%); }
-.flower-6  { top: 75px; left: 83px; transform: translate(-50%, -50%); }
-.flower-7  { top: 87px; left: 67px; transform: translate(-50%, -50%); }
-.flower-8  { top: 91.5px; left: 47.5px; transform: translate(-50%, -50%); }
-.flower-9  { top: 87px; left: 28px; transform: translate(-50%, -50%); }
-.flower-10 { top: 75px; left: 12px; transform: translate(-50%, -50%); }
-.flower-11 { top: 57.5px; left: 2px; transform: translate(-50%, -50%); }
-.flower-12 { top: 35.5px; left: 2px; transform: translate(-50%, -50%); }
-.flower-13 { top: 18px; left: 12px; transform: translate(-50%, -50%); }
-.flower-14 { top: 6px; left: 28px; transform: translate(-50%, -50%); }
+.flower-2  { top: 4px; left: 60px; transform: translate(-50%, -50%); }
+.flower-3  { top: 10px; left: 73px; transform: translate(-50%, -50%); }
+.flower-4  { top: 19px; left: 83px; transform: translate(-50%, -50%); }
+.flower-5  { top: 31px; left: 90px; transform: translate(-50%, -50%); }
+.flower-6  { top: 44px; left: 93px; transform: translate(-50%, -50%); }
+.flower-7  { top: 58px; left: 93px; transform: translate(-50%, -50%); }
+.flower-8  { top: 71px; left: 90px; transform: translate(-50%, -50%); }
+.flower-9  { top: 81px; left: 83px; transform: translate(-50%, -50%); }
+.flower-10 { top: 89px; left: 73px; transform: translate(-50%, -50%); }
+.flower-11 { top: 93.5px; left: 47.5px; transform: translate(-50%, -50%); }
+.flower-12 { top: 91px; left: 35px; transform: translate(-50%, -50%); }
+.flower-13 { top: 85px; left: 22px; transform: translate(-50%, -50%); }
+.flower-14 { top: 76px; left: 12px; transform: translate(-50%, -50%); }
+.flower-15 { top: 64px; left: 5px; transform: translate(-50%, -50%); }
+.flower-16 { top: 51px; left: 2px; transform: translate(-50%, -50%); }
+.flower-17 { top: 37px; left: 2px; transform: translate(-50%, -50%); }
+.flower-18 { top: 24px; left: 5px; transform: translate(-50%, -50%); }
+.flower-19 { top: 13px; left: 13px; transform: translate(-50%, -50%); }
+.flower-20 { top: 6px; left: 23px; transform: translate(-50%, -50%); }
 
 
 /* Username */
@@ -500,7 +554,26 @@ body {
 
             <div class="avatar-container">
 
-                <div class="pfp-text-doodle">:3</div>
+                <svg class="rabbit-doodle" viewBox="0 0 100 100">
+                    <g class="rabbit-body">
+                        <path class="rabbit-ear-left" d="M35 38 Q25 10 38 10 Q45 10 42 35 Z" fill="#fff" stroke="#ff4d88" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M37 32 Q31 15 38 15 Q41 15 40 30 Z" fill="#ffb6c1"/>
+                        
+                        <path class="rabbit-ear-right" d="M65 38 Q75 10 62 10 Q55 10 58 35 Z" fill="#fff" stroke="#ff4d88" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M63 32 Q69 15 62 15 Q59 15 60 30 Z" fill="#ffb6c1"/>
+                        
+                        <ellipse cx="50" cy="58" rx="22" ry="18" fill="#fff" stroke="#ff4d88" stroke-width="4"/>
+                        
+                        <circle cx="37" cy="63" r="4" fill="#ffb6c1" opacity="0.8"/>
+                        <circle cx="63" cy="63" r="4" fill="#ffb6c1" opacity="0.8"/>
+                        
+                        <path d="M40 54 Q44 50 48 54" fill="none" stroke="#ff4d88" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M52 54 Q56 50 60 54" fill="none" stroke="#ff4d88" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <polygon points="50,58 47,56 53,56" fill="#ff4d88"/>
+                        <path d="M47 59 Q50 62 50 59 Q50 62 53 59" fill="none" stroke="#ff4d88" stroke-width="2.5" stroke-linecap="round"/>
+                    </g>
+                </svg>
 
                 <div class="pfp-outline-flowers">
                     <div class="flower-orbit-ring">
@@ -518,6 +591,12 @@ body {
                         <svg class="smol-outline-flower flower-12" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                         <svg class="smol-outline-flower flower-13" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                         <svg class="smol-outline-flower flower-14" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
+                        <svg class="smol-outline-flower flower-15" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
+                        <svg class="smol-outline-flower flower-16" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
+                        <svg class="smol-outline-flower flower-17" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
+                        <svg class="smol-outline-flower flower-18" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
+                        <svg class="smol-outline-flower flower-19" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
+                        <svg class="smol-outline-flower flower-20" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                     </div>
                 </div>
 
