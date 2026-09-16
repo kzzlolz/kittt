@@ -9,13 +9,13 @@
 <!-- Link Preview -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kittt's Profile">
-<meta property="og:description" content="kawaii Japan girl with stupid friends :3">
+<meta property="og:description" content="Mreow~! :3">
 <meta property="og:image" content="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
 <meta property="og:url" content="https://kzzlolz.github.io/kittt/">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kittt's Profile">
-<meta name="twitter:description" content="kawaii Japan girl with stupid friends :3">
+<meta name="twitter:description" content="Mreow~! :3">
 <meta name="twitter:image" content="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
 
 <link rel="icon" type="image/jpeg" href="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
@@ -135,96 +135,76 @@ body {
     60%, 100% { border-color: #ffb6c1; box-shadow: 0 0 15px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 192, 203, 0.5); }
 }
 
-/* Cat doodle with :3 face */
+/* Cat doodle with :3 face - slow floating like banner */
 .pfp-cat-doodle {
     position: absolute;
-    top: -16px;
-    right: -16px;
-    width: 46px;
-    height: 46px;
-    z-index: 1;
-    pointer-events: none;
-    animation: catPopHoverAnim 10s infinite;
-}
-
-@keyframes catPopHoverAnim {
-    0%, 12% {
-        transform: translate(25px, 25px) scale(0.2) rotate(-30deg);
-        opacity: 0;
-        z-index: 1;
-    }
-    20% {
-        opacity: 1;
-        z-index: 4;
-    }
-    30%, 82% {
-        transform: translate(0px, 0px) scale(1) rotate(0deg);
-        opacity: 1;
-        z-index: 4;
-    }
-    35% { transform: translate(-2px, -5px) scale(1.04) rotate(-3deg); }
-    40% { transform: translate(1px, -1px) scale(1) rotate(2deg); }
-    45% { transform: translate(-2px, -5px) scale(1.04) rotate(-3deg); }
-    50% { transform: translate(1px, -1px) scale(1) rotate(2deg); }
-    55% { transform: translate(-2px, -5px) scale(1.04) rotate(-3deg); }
-    60% { transform: translate(1px, -1px) scale(1) rotate(2deg); }
-    65% { transform: translate(-2px, -5px) scale(1.04) rotate(-3deg); }
-    70% { transform: translate(1px, -1px) scale(1) rotate(2deg); }
-    75% { transform: translate(-2px, -5px) scale(1.04) rotate(-3deg); }
-    80% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
-    92%, 100% {
-        transform: translate(25px, 25px) scale(0.2) rotate(-30deg);
-        opacity: 0;
-        z-index: 1;
-    }
-}
-
-/* Spaced out pink doodled sparkles: top left, mid top left (bigger), mid bottom left (bigger), bottom right */
-.doodled-sparkle {
-    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 44px;
+    height: 44px;
     z-index: 5;
     pointer-events: none;
-    opacity: 0;
-    animation: doodledSparkleAnim 10s infinite;
+    animation: catSlowHover 4s ease-in-out infinite;
 }
 
-.sparkle-top-left { top: -12px; left: -14px; width: 22px; height: 22px; animation-delay: 3.2s; }
-.sparkle-mid-top-left { top: 2px; left: -32px; width: 34px; height: 34px; animation-delay: 3.4s; }
-.sparkle-mid-bottom-left { bottom: 2px; left: -30px; width: 32px; height: 32px; animation-delay: 3.6s; }
-.sparkle-bottom-right { bottom: -12px; right: -14px; width: 22px; height: 22px; animation-delay: 3.8s; }
-
-@keyframes doodledSparkleAnim {
-    0%, 28% { transform: scale(0) rotate(0deg); opacity: 0; }
-    35% { transform: scale(1.15) rotate(10deg); opacity: 0.9; }
-    45% { transform: scale(0.9) rotate(-8deg); opacity: 0.8; }
-    55% { transform: scale(1.05) rotate(5deg); opacity: 0.9; }
-    70% { transform: scale(0.95) rotate(-3deg); opacity: 0.85; }
-    82% { transform: scale(1) rotate(0deg); opacity: 0.9; }
-    92%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+@keyframes catSlowHover {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(4deg); }
 }
 
-/* Very smol and a lot of flowers revolving tight around the PFP */
+/* Exactly 3 sparkles packed closely around the PFP */
+.sparkle-1 {
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    z-index: 4;
+    pointer-events: none;
+    animation: sparkleTwinkle 2.5s ease-in-out infinite;
+}
+
+.sparkle-2 {
+    position: absolute;
+    bottom: 2px;
+    left: -4px;
+    width: 20px;
+    height: 20px;
+    z-index: 4;
+    pointer-events: none;
+    animation: sparkleTwinkle 2.5s ease-in-out infinite 0.8s;
+}
+
+.sparkle-3 {
+    position: absolute;
+    top: 35px;
+    right: -6px;
+    width: 17px;
+    height: 17px;
+    z-index: 4;
+    pointer-events: none;
+    animation: sparkleTwinkle 2.5s ease-in-out infinite 1.6s;
+}
+
+@keyframes sparkleTwinkle {
+    0%, 100% { transform: scale(0.8); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Packed and orderly flower ring revolving closely around PFP */
 .pfp-outline-flowers {
     position: absolute;
-    inset: 2px;
+    inset: -3px;
     border-radius: 50%;
     z-index: 3;
     pointer-events: none;
-    opacity: 0;
-    animation: flowerOrbitFade 10s infinite;
-}
-
-@keyframes flowerOrbitFade {
-    0%, 25% { opacity: 0; }
-    32%, 85% { opacity: 1; }
-    92%, 100% { opacity: 0; }
 }
 
 .flower-orbit-ring {
     width: 100%;
     height: 100%;
     position: relative;
-    animation: spinFlowers 10s linear infinite;
+    animation: spinFlowers 16s linear infinite;
 }
 
 @keyframes spinFlowers {
@@ -234,29 +214,25 @@ body {
 
 .smol-outline-flower {
     position: absolute;
-    width: 11px;
-    height: 11px;
+    width: 15px;
+    height: 15px;
 }
 
-/* Tightly hugging the circular profile border */
-.flower-1  { top: -4px; left: 45%; }
-.flower-2  { top: 0px; right: 28px; }
-.flower-3  { top: 8px; right: 14px; }
-.flower-4  { top: 18px; right: 4px; }
-.flower-5  { top: 32px; right: -2px; }
-.flower-6  { top: 48px; right: -4px; }
-.flower-7  { bottom: 28px; right: 0px; }
-.flower-8  { bottom: 12px; right: 6px; }
-.flower-9  { bottom: -4px; left: 55%; }
-.flower-10 { bottom: -2px; left: 35%; }
-.flower-11 { bottom: 10px; left: 8px; }
-.flower-12 { bottom: 26px; left: 2px; }
-.flower-13 { top: 46px; left: -4px; }
-.flower-14 { top: 30px; left: -2px; }
-.flower-15 { top: 16px; left: 6px; }
-.flower-16 { top: 6px; left: 18px; }
-.flower-17 { top: 1px; left: 30px; }
-.flower-18 { bottom: 42px; right: -2px; }
+/* Precisely placed in a tight circle around the 95px container */
+.flower-1  { top: 0px; left: 42.5px; transform: translate(-50%, -50%); }
+.flower-2  { top: 4.5px; left: 63px; transform: translate(-50%, -50%); }
+.flower-3  { top: 17px; left: 80px; transform: translate(-50%, -50%); }
+.flower-4  { top: 35.5px; left: 91px; transform: translate(-50%, -50%); }
+.flower-5  { top: 57.5px; left: 91px; transform: translate(-50%, -50%); }
+.flower-6  { top: 76px; left: 80px; transform: translate(-50%, -50%); }
+.flower-7  { top: 88.5px; left: 63px; transform: translate(-50%, -50%); }
+.flower-8  { top: 93px; left: 42.5px; transform: translate(-50%, -50%); }
+.flower-9  { top: 88.5px; left: 22px; transform: translate(-50%, -50%); }
+.flower-10 { top: 76px; left: 5px; transform: translate(-50%, -50%); }
+.flower-11 { top: 57.5px; left: -6px; transform: translate(-50%, -50%); }
+.flower-12 { top: 35.5px; left: -6px; transform: translate(-50%, -50%); }
+.flower-13 { top: 17px; left: 5px; transform: translate(-50%, -50%); }
+.flower-14 { top: 4.5px; left: 22px; transform: translate(-50%, -50%); }
 
 
 /* Username */
@@ -526,7 +502,7 @@ body {
 
             <div class="avatar-container">
 
-                <!-- Cat doodle with :3 face -->
+                <!-- Cat doodle with :3 face (slow hover animation) -->
                 <svg class="pfp-cat-doodle" viewBox="0 0 100 100">
                     <polygon points="26,38 18,14 40,28" fill="#fff" stroke="#ff4d88" stroke-width="4.5" stroke-linejoin="round"/>
                     <polygon points="27,34 22,20 36,29" fill="#ffb6c1" stroke="#ff4d88" stroke-width="2" stroke-linejoin="round"/>
@@ -545,24 +521,21 @@ body {
                     <circle cx="67" cy="56" r="4" fill="#ffb6c1" opacity="0.7"/>
                 </svg>
 
-                <!-- Spaced out pink doodled sparkles: top left, mid top left (bigger), mid bottom left (bigger), bottom right -->
-                <svg class="doodled-sparkle sparkle-top-left" viewBox="0 0 100 100">
+                <!-- Exactly 3 sparkles placed closely around the PFP -->
+                <svg class="sparkle-1" viewBox="0 0 100 100">
                     <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
                 </svg>
-                <svg class="doodled-sparkle sparkle-mid-top-left" viewBox="0 0 100 100">
+                <svg class="sparkle-2" viewBox="0 0 100 100">
                     <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
                 </svg>
-                <svg class="doodled-sparkle sparkle-mid-bottom-left" viewBox="0 0 100 100">
-                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
-                </svg>
-                <svg class="doodled-sparkle sparkle-bottom-right" viewBox="0 0 100 100">
+                <svg class="sparkle-3" viewBox="0 0 100 100">
                     <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
                 </svg>
 
-                <!-- Lots of very small flowers revolving tight around the PFP border -->
+                <!-- Packed and orderly revolving flowers tight around PFP -->
                 <div class="pfp-outline-flowers">
                     <div class="flower-orbit-ring">
-                        <!-- 18 Tiny Outline Flowers -->
+                        <!-- 14 Orderly Packed Outline Flowers -->
                         <svg class="smol-outline-flower flower-1" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                         <svg class="smol-outline-flower flower-2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                         <svg class="smol-outline-flower flower-3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
@@ -577,10 +550,6 @@ body {
                         <svg class="smol-outline-flower flower-12" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                         <svg class="smol-outline-flower flower-13" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                         <svg class="smol-outline-flower flower-14" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
-                        <svg class="smol-outline-flower flower-15" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
-                        <svg class="smol-outline-flower flower-16" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
-                        <svg class="smol-outline-flower flower-17" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
-                        <svg class="smol-outline-flower flower-18" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                     </div>
                 </div>
 
