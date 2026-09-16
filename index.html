@@ -6,7 +6,6 @@
 
 <title>Kittt's Profile</title>
 
-<!-- Link Preview -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kittt's Profile">
 <meta property="og:description" content="Mreow~! :3">
@@ -135,30 +134,30 @@ body {
     60%, 100% { border-color: #ffb6c1; box-shadow: 0 0 15px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 192, 203, 0.5); }
 }
 
-/* Cat doodle with :3 face - slow floating like banner */
+/* Cat doodle with :3 face - slow hovering banner style */
 .pfp-cat-doodle {
     position: absolute;
-    top: -18px;
-    right: -18px;
-    width: 44px;
-    height: 44px;
+    top: -22px;
+    right: -22px;
+    width: 48px;
+    height: 48px;
     z-index: 5;
     pointer-events: none;
-    animation: catSlowHover 4s ease-in-out infinite;
+    animation: catBannerHover 4s ease-in-out infinite;
 }
 
-@keyframes catSlowHover {
+@keyframes catBannerHover {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-5px) rotate(4deg); }
+    50% { transform: translateY(-6px) rotate(3deg); }
 }
 
-/* Exactly 3 sparkles packed closely around the PFP */
+/* Exactly 3 sparkles, placed very close to PFP */
 .sparkle-1 {
     position: absolute;
-    top: -2px;
-    left: 2px;
-    width: 18px;
-    height: 18px;
+    top: 2px;
+    left: 10px;
+    width: 15px;
+    height: 15px;
     z-index: 4;
     pointer-events: none;
     animation: sparkleTwinkle 2.5s ease-in-out infinite;
@@ -166,10 +165,10 @@ body {
 
 .sparkle-2 {
     position: absolute;
-    bottom: 2px;
-    left: -4px;
-    width: 20px;
-    height: 20px;
+    bottom: 6px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
     z-index: 4;
     pointer-events: none;
     animation: sparkleTwinkle 2.5s ease-in-out infinite 0.8s;
@@ -177,10 +176,10 @@ body {
 
 .sparkle-3 {
     position: absolute;
-    top: 35px;
-    right: -6px;
-    width: 17px;
-    height: 17px;
+    top: 32px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
     z-index: 4;
     pointer-events: none;
     animation: sparkleTwinkle 2.5s ease-in-out infinite 1.6s;
@@ -191,10 +190,10 @@ body {
     50% { transform: scale(1.2); opacity: 1; }
 }
 
-/* Packed and orderly flower ring revolving closely around PFP */
+/* Flowers revolving closely, packed and orderly around PFP */
 .pfp-outline-flowers {
     position: absolute;
-    inset: -3px;
+    inset: -1px;
     border-radius: 50%;
     z-index: 3;
     pointer-events: none;
@@ -214,25 +213,25 @@ body {
 
 .smol-outline-flower {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
 }
 
-/* Precisely placed in a tight circle around the 95px container */
-.flower-1  { top: 0px; left: 42.5px; transform: translate(-50%, -50%); }
-.flower-2  { top: 4.5px; left: 63px; transform: translate(-50%, -50%); }
-.flower-3  { top: 17px; left: 80px; transform: translate(-50%, -50%); }
-.flower-4  { top: 35.5px; left: 91px; transform: translate(-50%, -50%); }
-.flower-5  { top: 57.5px; left: 91px; transform: translate(-50%, -50%); }
-.flower-6  { top: 76px; left: 80px; transform: translate(-50%, -50%); }
-.flower-7  { top: 88.5px; left: 63px; transform: translate(-50%, -50%); }
-.flower-8  { top: 93px; left: 42.5px; transform: translate(-50%, -50%); }
-.flower-9  { top: 88.5px; left: 22px; transform: translate(-50%, -50%); }
-.flower-10 { top: 76px; left: 5px; transform: translate(-50%, -50%); }
-.flower-11 { top: 57.5px; left: -6px; transform: translate(-50%, -50%); }
-.flower-12 { top: 35.5px; left: -6px; transform: translate(-50%, -50%); }
-.flower-13 { top: 17px; left: 5px; transform: translate(-50%, -50%); }
-.flower-14 { top: 4.5px; left: 22px; transform: translate(-50%, -50%); }
+/* Tightly packed circle perfectly hugging the avatar container */
+.flower-1  { top: 2px; left: 47.5px; transform: translate(-50%, -50%); }
+.flower-2  { top: 6px; left: 67px; transform: translate(-50%, -50%); }
+.flower-3  { top: 18px; left: 83px; transform: translate(-50%, -50%); }
+.flower-4  { top: 35.5px; left: 93px; transform: translate(-50%, -50%); }
+.flower-5  { top: 57.5px; left: 93px; transform: translate(-50%, -50%); }
+.flower-6  { top: 75px; left: 83px; transform: translate(-50%, -50%); }
+.flower-7  { top: 87px; left: 67px; transform: translate(-50%, -50%); }
+.flower-8  { top: 91.5px; left: 47.5px; transform: translate(-50%, -50%); }
+.flower-9  { top: 87px; left: 28px; transform: translate(-50%, -50%); }
+.flower-10 { top: 75px; left: 12px; transform: translate(-50%, -50%); }
+.flower-11 { top: 57.5px; left: 2px; transform: translate(-50%, -50%); }
+.flower-12 { top: 35.5px; left: 2px; transform: translate(-50%, -50%); }
+.flower-13 { top: 18px; left: 12px; transform: translate(-50%, -50%); }
+.flower-14 { top: 6px; left: 28px; transform: translate(-50%, -50%); }
 
 
 /* Username */
@@ -485,31 +484,26 @@ body {
 
 <body>
 
-<!-- Floating hearts -->
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 
-<!-- Everything -->
 <div class="layout">
 
-    <!-- Main Profile Widget -->
     <div class="widget">
 
         <div class="profile">
 
             <div class="avatar-container">
 
-                <!-- Cat doodle with :3 face (slow hover animation) -->
                 <svg class="pfp-cat-doodle" viewBox="0 0 100 100">
                     <polygon points="26,38 18,14 40,28" fill="#fff" stroke="#ff4d88" stroke-width="4.5" stroke-linejoin="round"/>
                     <polygon points="27,34 22,20 36,29" fill="#ffb6c1" stroke="#ff4d88" stroke-width="2" stroke-linejoin="round"/>
                     <polygon points="74,38 82,14 60,28" fill="#fff" stroke="#ff4d88" stroke-width="4.5" stroke-linejoin="round"/>
                     <polygon points="73,34 78,20 64,29" fill="#ffb6c1" stroke="#ff4d88" stroke-width="2" stroke-linejoin="round"/>
                     <circle cx="50" cy="56" r="28" fill="#fff" stroke="#ff4d88" stroke-width="4.5"/>
-                    <!-- :3 face expression -->
                     <path d="M38 48 Q41 52 44 48" fill="none" stroke="#ff4d88" stroke-width="3" stroke-linecap="round"/>
                     <path d="M56 48 Q59 52 62 48" fill="none" stroke="#ff4d88" stroke-width="3" stroke-linecap="round"/>
                     <path d="M45 57 Q50 63 55 57 Q50 66 45 57 Z" fill="#ff4d88"/>
@@ -521,7 +515,6 @@ body {
                     <circle cx="67" cy="56" r="4" fill="#ffb6c1" opacity="0.7"/>
                 </svg>
 
-                <!-- Exactly 3 sparkles placed closely around the PFP -->
                 <svg class="sparkle-1" viewBox="0 0 100 100">
                     <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
                 </svg>
@@ -532,10 +525,8 @@ body {
                     <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
                 </svg>
 
-                <!-- Packed and orderly revolving flowers tight around PFP -->
                 <div class="pfp-outline-flowers">
                     <div class="flower-orbit-ring">
-                        <!-- 14 Orderly Packed Outline Flowers -->
                         <svg class="smol-outline-flower flower-1" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                         <svg class="smol-outline-flower flower-2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                         <svg class="smol-outline-flower flower-3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
@@ -553,7 +544,6 @@ body {
                     </div>
                 </div>
 
-                <!-- Main Profile Picture -->
                 <img
                     class="avatar"
                     src="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg"
@@ -573,7 +563,6 @@ body {
 
         </div>
 
-        <!-- About Me -->
         <div class="about">
             <div class="about-title">
                 About Me
@@ -585,7 +574,6 @@ body {
             </div>
         </div>
 
-        <!-- Stats -->
         <div class="stats">
             <div class="stat">
                 <div class="stat-label">🎂 Birthday</div>
@@ -605,7 +593,6 @@ body {
             </div>
         </div>
 
-        <!-- Music -->
         <div class="music-player">
             <img
                 class="album"
@@ -622,7 +609,6 @@ body {
             <button class="play-button" id="playButton">❚❚</button>
         </div>
 
-        <!-- Links -->
         <div class="links">
             <a
                 class="link-button"
@@ -635,7 +621,6 @@ body {
 
     </div>
 
-    <!-- Side Banner -->
     <div class="banner-frame">
         <img
             class="banner"
