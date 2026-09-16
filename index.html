@@ -134,31 +134,33 @@ body {
     60%, 100% { border-color: #ffb6c1; box-shadow: 0 0 15px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 192, 203, 0.5); }
 }
 
-/* Cat doodle with :3 face - slow hovering banner style */
-.pfp-cat-doodle {
+/* Text replacement ":3" with slow hovering style */
+.pfp-text-doodle {
     position: absolute;
     top: -22px;
-    right: -22px;
-    width: 48px;
-    height: 48px;
-    z-index: 5;
+    right: -24px;
+    z-index: 6; /* In front of sparkles and everything */
     pointer-events: none;
-    animation: catBannerHover 4s ease-in-out infinite;
+    font-family: "Press Start 2P", monospace;
+    font-size: 16px;
+    color: #ff4d88;
+    text-shadow: 0 0 8px rgba(255, 182, 193, 0.9), 1px 1px 0px #fff;
+    animation: textSlowHover 4s ease-in-out infinite;
 }
 
-@keyframes catBannerHover {
+@keyframes textSlowHover {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-6px) rotate(3deg); }
+    50% { transform: translateY(-6px) rotate(4deg); }
 }
 
-/* Exactly 3 sparkles, placed very close to PFP */
+/* Exactly 3 sparkles placed closely around the PFP, now layered in FRONT of flowers (z-index: 5) */
 .sparkle-1 {
     position: absolute;
     top: 2px;
     left: 10px;
     width: 15px;
     height: 15px;
-    z-index: 4;
+    z-index: 5;
     pointer-events: none;
     animation: sparkleTwinkle 2.5s ease-in-out infinite;
 }
@@ -169,7 +171,7 @@ body {
     left: 2px;
     width: 16px;
     height: 16px;
-    z-index: 4;
+    z-index: 5;
     pointer-events: none;
     animation: sparkleTwinkle 2.5s ease-in-out infinite 0.8s;
 }
@@ -180,7 +182,7 @@ body {
     right: 2px;
     width: 14px;
     height: 14px;
-    z-index: 4;
+    z-index: 5;
     pointer-events: none;
     animation: sparkleTwinkle 2.5s ease-in-out infinite 1.6s;
 }
@@ -190,7 +192,7 @@ body {
     50% { transform: scale(1.2); opacity: 1; }
 }
 
-/* Flowers revolving closely, packed and orderly around PFP */
+/* Flowers revolving closely, packed and orderly around PFP (z-index: 3) */
 .pfp-outline-flowers {
     position: absolute;
     inset: -1px;
@@ -498,32 +500,7 @@ body {
 
             <div class="avatar-container">
 
-                <svg class="pfp-cat-doodle" viewBox="0 0 100 100">
-                    <polygon points="26,38 18,14 40,28" fill="#fff" stroke="#ff4d88" stroke-width="4.5" stroke-linejoin="round"/>
-                    <polygon points="27,34 22,20 36,29" fill="#ffb6c1" stroke="#ff4d88" stroke-width="2" stroke-linejoin="round"/>
-                    <polygon points="74,38 82,14 60,28" fill="#fff" stroke="#ff4d88" stroke-width="4.5" stroke-linejoin="round"/>
-                    <polygon points="73,34 78,20 64,29" fill="#ffb6c1" stroke="#ff4d88" stroke-width="2" stroke-linejoin="round"/>
-                    <circle cx="50" cy="56" r="28" fill="#fff" stroke="#ff4d88" stroke-width="4.5"/>
-                    <path d="M38 48 Q41 52 44 48" fill="none" stroke="#ff4d88" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M56 48 Q59 52 62 48" fill="none" stroke="#ff4d88" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M45 57 Q50 63 55 57 Q50 66 45 57 Z" fill="#ff4d88"/>
-                    <line x1="22" y1="57" x2="36" y2="59" stroke="#ff4d88" stroke-width="2.5" stroke-linecap="round"/>
-                    <line x1="20" y1="64" x2="35" y2="62" stroke="#ff4d88" stroke-width="2.5" stroke-linecap="round"/>
-                    <line x1="78" y1="57" x2="64" y2="59" stroke="#ff4d88" stroke-width="2.5" stroke-linecap="round"/>
-                    <line x1="80" y1="64" x2="65" y2="62" stroke="#ff4d88" stroke-width="2.5" stroke-linecap="round"/>
-                    <circle cx="33" cy="56" r="4" fill="#ffb6c1" opacity="0.7"/>
-                    <circle cx="67" cy="56" r="4" fill="#ffb6c1" opacity="0.7"/>
-                </svg>
-
-                <svg class="sparkle-1" viewBox="0 0 100 100">
-                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
-                </svg>
-                <svg class="sparkle-2" viewBox="0 0 100 100">
-                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
-                </svg>
-                <svg class="sparkle-3" viewBox="0 0 100 100">
-                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
-                </svg>
+                <div class="pfp-text-doodle">:3</div>
 
                 <div class="pfp-outline-flowers">
                     <div class="flower-orbit-ring">
@@ -543,6 +520,16 @@ body {
                         <svg class="smol-outline-flower flower-14" viewBox="0 0 100 100"><circle cx="50" cy="50" r="14" fill="#ffb6c1"/><circle cx="50" cy="20" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="80" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="20" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="80" cy="50" r="15" fill="#fff" stroke="#ff4d88" stroke-width="8"/><circle cx="50" cy="50" r="12" fill="#ffeb3b"/></svg>
                     </div>
                 </div>
+
+                <svg class="sparkle-1" viewBox="0 0 100 100">
+                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
+                </svg>
+                <svg class="sparkle-2" viewBox="0 0 100 100">
+                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
+                </svg>
+                <svg class="sparkle-3" viewBox="0 0 100 100">
+                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
+                </svg>
 
                 <img
                     class="avatar"
