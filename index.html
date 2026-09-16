@@ -10,13 +10,13 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kittt's Profile">
-<meta property="og:description" content="kawaii Japan girl with stupid friends :3">
+<meta property="og:description" content="Something little about me ;3">
 <meta property="og:image" content="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
 <meta property="og:url" content="https://kzzlolz.github.io/kittt/">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kittt's Profile">
-<meta name="twitter:description" content="kawaii Japan girl with stupid friends :3">
+<meta name="twitter:description" content="Something little about me ;3">
 <meta name="twitter:image" content="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
 
 <link rel="icon" type="image/jpeg" href="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
@@ -194,13 +194,13 @@ body {
         box-shadow: 0 0 12px rgba(255,255,255,0.9), 0 0 25px rgba(255, 150, 180, 0.8);
     }
     60%, 100% {
-        border-color: #ff1493;
-        box-shadow: 0 0 18px #ff1493, 0 0 35px #ff69b4;
+        border-color: #ffb6c1; /* Lighter pink outline */
+        box-shadow: 0 0 15px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 192, 203, 0.5);
     }
 }
 
 
-/* Custom PFP Animation Elements (Re-worked per instructions) */
+/* Custom PFP Animation Elements */
 
 /* Ribbon at top right */
 .pfp-ribbon {
@@ -220,12 +220,12 @@ body {
     95%, 100% { transform: scale(0) rotate(-20deg); opacity: 0; }
 }
 
-/* Bunny doodle based on reference: slowly come out from behind PFP, walk out and stay seated at bottom left */
+/* Bunny doodle using new image link */
 .pfp-bunny-doodle {
     position: absolute;
     width: 42px;
     height: 42px;
-    background-image: url('https://i.ibb.co/6R22zYQ/images.jpeg'); /* Reference image hosted/referenced */
+    background-image: url('https://i.ibb.co/CpVNHGwy/images.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -237,22 +237,19 @@ body {
 
 @keyframes bunnyWalkAnim {
     0%, 10% {
-        /* Hidden behind PFP center/top */
         transform: translate(25px, 25px) scale(0.3);
         opacity: 0;
         z-index: 1;
     }
     15% {
         opacity: 1;
-        z-index: 1; /* Emerging from behind */
+        z-index: 1;
     }
     30% {
-        /* Moving out and settling at left bottom of PFP */
         transform: translate(-18px, 42px) scale(1);
-        z-index: 4; /* In front now */
+        z-index: 4;
     }
     85% {
-        /* Stays seated at bottom left */
         transform: translate(-18px, 42px) scale(1);
         z-index: 4;
         opacity: 1;
@@ -264,27 +261,48 @@ body {
     }
 }
 
-/* Neon pink outline that goes in circle around PFP */
-.pfp-neon-ring {
+/* Rotating small lines " - " around PFP */
+.pfp-orbit-container {
     position: absolute;
-    inset: -6px;
+    inset: -10px;
     border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #ff1493;
     z-index: 3;
     pointer-events: none;
     opacity: 0;
-    animation: neonRingAnim 10s infinite;
+    animation: orbitContainerFade 10s infinite;
 }
 
-@keyframes neonRingAnim {
-    0%, 55% { opacity: 0; transform: rotate(0deg); }
-    60% { opacity: 1; transform: rotate(0deg); }
-    85% { opacity: 1; transform: rotate(360deg); }
-    95%, 100% { opacity: 0; transform: rotate(360deg); }
+@keyframes orbitContainerFade {
+    0%, 55% { opacity: 0; }
+    60%, 88% { opacity: 1; }
+    92%, 100% { opacity: 0; }
 }
 
-/* Sparkles around PFP */
+.orbit-ring {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: spinOrbit 4s linear infinite;
+}
+
+@keyframes spinOrbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.orbit-dash {
+    position: absolute;
+    font-size: 14px;
+    color: #ffb6c1;
+    font-weight: bold;
+}
+
+.dash-1 { top: -2px; left: 50%; transform: translateX(-50%); }
+.dash-2 { bottom: -2px; left: 50%; transform: translateX(-50%); }
+.dash-3 { left: -2px; top: 50%; transform: translateY(-50%); }
+.dash-4 { right: -2px; top: 50%; transform: translateY(-50%); }
+
+/* Sparkles */
 .pfp-sparkle {
     position: absolute;
     font-size: 14px;
@@ -617,7 +635,7 @@ body {
 }
 
 
-/* Side banner - Using the new flower image */
+/* Side banner - Using new flower link */
 
 .banner-frame {
     width: 280px;
@@ -730,10 +748,17 @@ body {
 
                 <!-- Ribbon appearing at top right -->
                 <div class="pfp-ribbon">🎀</div>
-                <!-- Bunny doodle coming from behind and sitting at bottom left -->
+                <!-- Bunny doodle emerging from behind and settling at bottom left -->
                 <div class="pfp-bunny-doodle"></div>
-                <!-- Neon ring looping around PFP -->
-                <div class="pfp-neon-ring"></div>
+                <!-- Orbiting dashes (" - ") around PFP -->
+                <div class="pfp-orbit-container">
+                    <div class="orbit-ring">
+                        <span class="orbit-dash dash-1">-</span>
+                        <span class="orbit-dash dash-2">-</span>
+                        <span class="orbit-dash dash-3">-</span>
+                        <span class="orbit-dash dash-4">-</span>
+                    </div>
+                </div>
                 <!-- Sparkles -->
                 <div class="pfp-sparkle sparkle-1">✨</div>
                 <div class="pfp-sparkle sparkle-2">💖</div>
@@ -895,14 +920,14 @@ body {
     </div>
 
 
-    <!-- Side Banner (Using provided purple flowers image) -->
+    <!-- Side Banner (Using updated flower image link) -->
 
     <div class="banner-frame">
 
         <img
             class="banner"
-            src="https://i.ibb.co/c516abf15c71455a6ce60ec1e612f9b0/c516abf15c71455a6ce60ec1e612f9b0.jpg"
-            alt="Flower Pattern Banner"
+            src="https://i.ibb.co/Z6L7bTcz/c516abf15c71455a6ce60ec1e612f9b0.jpg"
+            alt="Flower Banner"
         >
 
     </div>
