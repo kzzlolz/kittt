@@ -6,7 +6,6 @@
 
 <title>Kittt's Profile</title>
 
-<!-- Link Preview -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kittt's Profile">
 <meta property="og:description" content="Mreow~! :3">
@@ -65,6 +64,10 @@ body {
 .heart:nth-child(3) { left: 50%; bottom: -20px; animation-delay: 4s; }
 .heart:nth-child(4) { left: 75%; bottom: -30px; animation-delay: 1s; }
 .heart:nth-child(5) { left: 90%; bottom: -40px; animation-delay: 3s; }
+.heart:nth-child(6) { left: 15%; bottom: -30px; animation-delay: 2.5s; }
+.heart:nth-child(7) { left: 35%; bottom: -40px; animation-delay: 1.5s; }
+.heart:nth-child(8) { left: 65%; bottom: -20px; animation-delay: 3.5s; }
+.heart:nth-child(9) { left: 85%; bottom: -30px; animation-delay: 0.5s; }
 
 @keyframes floatHeart {
     0% { transform: translateY(0) scale(0.8) rotate(0deg); }
@@ -143,12 +146,11 @@ body {
     100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Red Butterfly PNG */
+/* Red Butterfly PNG positioned bottom-right near pfp */
 .widget-butterfly {
-   .widget-butterfly {
     position: absolute;
     bottom: 2px;
-    right: 36px;
+    right: 6px;
     width: 40px;
     height: auto;
     z-index: 6;
@@ -157,7 +159,7 @@ body {
     transform: rotate(15deg);
 }
 
-    /* Circular Avatar Wrapper */
+/* Circular Avatar Wrapper */
 .avatar-circle-wrapper {
     position: absolute;
     width: 98px;
@@ -415,12 +417,12 @@ body {
     border: 3px solid rgba(255, 26, 64, 0.6);
     background: rgba(25, 12, 18, 0.75);
     box-shadow: 0 0 15px rgba(255, 0, 40, 0.5), 0 0 35px rgba(150, 0, 20, 0.3);
-    transition: transform 0.25s ease, box-shadow 0.25s ease; /* Added transition */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .banner-frame:hover {
-    transform: translateY(-5px); /* Pops up */
-    box-shadow: 0 8px 25px rgba(255, 0, 50, 0.6), 0 0 40px rgba(150, 0, 20, 0.4); /* Glows brighter */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 0, 50, 0.6), 0 0 40px rgba(150, 0, 20, 0.4);
 }
 
 .banner {
@@ -444,13 +446,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease; /* Added transition */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .clock-panel:hover {
-    transform: translateY(-5px); /* Pops up */
-    box-shadow: 0 8px 25px rgba(255, 0, 50, 0.6), 0 0 35px rgba(150, 0, 20, 0.4); /* Glows brighter */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 0, 50, 0.6), 0 0 35px rgba(150, 0, 20, 0.4);
 }
+
 .clock-item {
     display: flex;
     justify-content: space-between;
@@ -520,39 +523,33 @@ body {
 
 <body>
 
-<!-- Floating red hearts -->
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
-    <div class="heart">♥</div>
-    <div class="heart">♥</div>
-    <div class="heart">♥</div>
-    <div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
 
-<!-- Everything -->
 <div class="layout">
 
-    <!-- Main Profile Widget -->
     <div class="widget">
 
         <div class="profile">
 
-           <div class="avatar-container">
-    <!-- Neon Spinning Outer Ring -->
-    <div class="neon-ring"></div>
+            <div class="avatar-container">
+                <div class="neon-ring"></div>
 
-    <!-- Red Butterfly PNG -->
-    <img class="widget-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly">
+                <img class="widget-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly">
 
-                <!-- Profile Picture inside Circular Mask -->
-    <div class="avatar-circle-wrapper">
-        <img
-            class="avatar"
-            src="https://i.ibb.co/nMC6jcHj/d.jpg"
-            alt="Kittt Avatar"
-        >
+                <div class="avatar-circle-wrapper">
+                    <img
+                        class="avatar"
+                        src="https://i.ibb.co/nMC6jcHj/d.jpg"
+                        alt="Kittt Avatar"
+                    >
                 </div>
             </div>
 
@@ -568,7 +565,6 @@ body {
 
         </div>
 
-        <!-- About Me -->
         <div class="about">
             <div class="about-title">
                 About Me
@@ -580,7 +576,6 @@ body {
             </div>
         </div>
 
-        <!-- Stats -->
         <div class="stats">
             <div class="stat">
                 <div class="stat-label">🎂 Birthday</div>
@@ -600,7 +595,6 @@ body {
             </div>
         </div>
 
-        <!-- Music -->
         <div class="music-player">
             <img
                 class="album"
@@ -617,22 +611,19 @@ body {
             <button class="play-button" id="playButton">❚❚</button>
         </div>
 
-        <!-- Links Row -->
         <div class="links">
             <a
                 class="link-button"
                 href="https://tinyurl.com/kittycrumbs-bakery"
                 target="_blank"
             >
-                 Kitty Crumbs Bakery
+                🧁 Kitty Crumbs Bakery
             </a>
         </div>
 
     </div>
 
-    <!-- Side Panels (Banner + Clock Info Box) -->
     <div class="side-panels">
-        <!-- Side banner -->
         <div class="banner-frame">
             <img
                 class="banner"
@@ -641,7 +632,6 @@ body {
             >
         </div>
 
-        <!-- Clock / Location Box -->
         <div class="clock-panel">
             <div class="clock-item">
                 <span class="clock-label">TIME</span>
