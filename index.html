@@ -6,6 +6,7 @@
 
 <title>Kittt's Profile</title>
 
+<!-- Link Preview -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kittt's Profile">
 <meta property="og:description" content="Mreow~! :3">
@@ -146,19 +147,6 @@ body {
     100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Red Butterfly PNG positioned bottom-right near pfp */
-.widget-butterfly {
-    position: absolute;
-    bottom: 2px;
-    right: 6px;
-    width: 40px;
-    height: auto;
-    z-index: 6;
-    pointer-events: none;
-    filter: drop-shadow(0 0 5px rgba(255, 0, 40, 0.9));
-    transform: rotate(15deg);
-}
-
 /* Circular Avatar Wrapper */
 .avatar-circle-wrapper {
     position: absolute;
@@ -183,6 +171,13 @@ body {
     object-fit: cover;
 }
 
+/* Username and Butterfly Container */
+.username-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 /* Username with smooth prism loop */
 .username {
     font-family: "Press Start 2P", monospace;
@@ -199,6 +194,15 @@ body {
     0% { background-position: 0% center; }
     50% { background-position: 100% center; }
     100% { background-position: 0% center; }
+}
+
+/* Red Butterfly PNG beside name */
+.name-butterfly {
+    width: 32px;
+    height: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px rgba(255, 0, 40, 0.9));
+    transform: rotate(15deg);
 }
 
 .sub-info {
@@ -523,6 +527,7 @@ body {
 
 <body>
 
+<!-- Floating red hearts -->
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
@@ -533,17 +538,19 @@ body {
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 
+<!-- Everything -->
 <div class="layout">
 
+    <!-- Main Profile Widget -->
     <div class="widget">
 
         <div class="profile">
 
             <div class="avatar-container">
+                <!-- Neon Spinning Outer Ring -->
                 <div class="neon-ring"></div>
 
-                <img class="widget-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly">
-
+                <!-- Profile Picture inside Circular Mask -->
                 <div class="avatar-circle-wrapper">
                     <img
                         class="avatar"
@@ -554,8 +561,9 @@ body {
             </div>
 
             <div>
-                <div class="username">
-                    Kittt
+                <div class="username-row">
+                    <div class="username">Kittt</div>
+                    <img class="name-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly">
                 </div>
                 <div class="sub-info">
                     <span class="pronouns">she/her</span>
@@ -565,6 +573,7 @@ body {
 
         </div>
 
+        <!-- About Me -->
         <div class="about">
             <div class="about-title">
                 About Me
@@ -576,6 +585,7 @@ body {
             </div>
         </div>
 
+        <!-- Stats -->
         <div class="stats">
             <div class="stat">
                 <div class="stat-label">🎂 Birthday</div>
@@ -595,6 +605,7 @@ body {
             </div>
         </div>
 
+        <!-- Music -->
         <div class="music-player">
             <img
                 class="album"
@@ -611,6 +622,7 @@ body {
             <button class="play-button" id="playButton">❚❚</button>
         </div>
 
+        <!-- Links Row -->
         <div class="links">
             <a
                 class="link-button"
@@ -623,7 +635,9 @@ body {
 
     </div>
 
+    <!-- Side Panels (Banner + Clock Info Box) -->
     <div class="side-panels">
+        <!-- Side banner -->
         <div class="banner-frame">
             <img
                 class="banner"
@@ -632,6 +646,7 @@ body {
             >
         </div>
 
+        <!-- Clock / Location Box -->
         <div class="clock-panel">
             <div class="clock-item">
                 <span class="clock-label">TIME</span>
