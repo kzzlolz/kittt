@@ -10,15 +10,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kittt's Profile">
 <meta property="og:description" content="Mreow~! :3">
-<meta property="og:image" content="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
+<meta property="og:image" content="https://i.ibb.co/nMC6jcHj/d.jpg">
 <meta property="og:url" content="https://kzzlolz.github.io/kittt/">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kittt's Profile">
 <meta name="twitter:description" content="Mreow~! :3">
-<meta name="twitter:image" content="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
+<meta name="twitter:image" content="https://i.ibb.co/nMC6jcHj/d.jpg">
 
-<link rel="icon" type="image/jpeg" href="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg">
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/nMC6jcHj/d.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
@@ -38,8 +38,8 @@ body {
     background:
         linear-gradient(
             180deg,
-            rgba(255, 182, 193, 0.75),
-            rgba(255, 240, 245, 0.95)
+            rgba(20, 10, 15, 0.85),
+            rgba(35, 12, 20, 0.95)
         ),
         url("https://media.giphy.com/media/l0MYB8Ory7HjuBxK0/giphy.gif");
 
@@ -49,14 +49,15 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Floating hearts */
+/* Floating red hearts */
 .heart {
     position: fixed;
-    color: #ff5c8d;
-    opacity: 0.5;
+    color: #ff1a40;
+    opacity: 0.4;
     font-size: 25px;
     pointer-events: none;
     animation: floatHeart 7s linear infinite;
+    filter: drop-shadow(0 0 6px rgba(255, 0, 50, 0.6));
 }
 
 .heart:nth-child(1) { left: 10%; bottom: -30px; animation-delay: 0s; }
@@ -87,11 +88,11 @@ body {
     width: 850px;
     max-width: 70vw;
     padding: 22px;
-    border: 3px solid rgba(255, 150, 180, 0.8);
+    border: 3px solid rgba(255, 26, 64, 0.6);
     border-radius: 25px;
-    background: rgba(255, 245, 248, 0.35);
+    background: rgba(25, 12, 18, 0.75);
     backdrop-filter: blur(15px);
-    box-shadow: 0 0 15px rgba(255, 140, 170, 0.7), 0 0 45px rgba(255, 160, 190, 0.3);
+    box-shadow: 0 0 20px rgba(255, 0, 40, 0.4), 0 0 50px rgba(150, 0, 20, 0.2);
     animation: widgetFloat 4s ease-in-out infinite;
     transform-style: preserve-3d;
     transition: transform 0.15s ease;
@@ -110,25 +111,86 @@ body {
     margin-bottom: 18px;
 }
 
-/* Heart's Reflection Custom Container */
+/* Avatar Container */
 .avatar-container {
     position: relative;
-    width: 110px;
-    height: 110px;
+    width: 125px;
+    height: 125px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Fixed properly proportioned heart mask for the avatar */
-.avatar-heart-wrapper {
+/* Neon Fuzzy & Glitchy PFP Decoration Ring */
+.neon-ring {
     position: absolute;
-    width: 76px;
-    height: 76px;
+    inset: 2px;
+    border-radius: 50%;
+    border: 3px solid #ff1a40;
+    box-shadow: 0 0 10px #ff1a40, 0 0 20px #ff1a40, inset 0 0 10px #ff1a40;
+    pointer-events: none;
+    z-index: 3;
+    animation: spinRing 10s linear infinite, glitchRing 2.5s ease infinite;
+}
+
+@keyframes spinRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glitchRing {
+    0%, 100% {
+        border-color: #ff1a40;
+        box-shadow: 0 0 12px #ff1a40, 0 0 25px #ff1a40, inset 0 0 10px #ff1a40;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    20% {
+        border-color: #ff3366;
+        box-shadow: 0 0 18px #ff0033, inset 0 0 15px #ff0033;
+        clip-path: polygon(0 5%, 100% 0%, 95% 100%, 5% 95%);
+    }
+    40% {
+        border-color: #ff0033;
+        box-shadow: 0 0 8px #ff0033, 0 0 30px #ff1a40;
+        clip-path: polygon(5% 0%, 100% 5%, 100% 95%, 0% 100%);
+    }
+    60% {
+        border-color: #ff4d6d;
+        box-shadow: 0 0 20px #ff1a40, inset 0 0 12px #ff1a40;
+        clip-path: polygon(0 0, 100% 10%, 90% 100%, 10% 90%);
+    }
+    80% {
+        border-color: #ff1a40;
+        box-shadow: 0 0 10px #ff1a40, inset 0 0 8px #ff1a40;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* Butterfly PNG */
+.widget-butterfly {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    width: 42px;
+    height: auto;
+    z-index: 5;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px rgba(255, 0, 40, 0.8));
+    transform: rotate(15deg);
+}
+
+/* Circular Avatar Wrapper */
+.avatar-circle-wrapper {
+    position: absolute;
+    width: 90px;
+    height: 90px;
     top: 17px;
     left: 17px;
     z-index: 2;
-    clip-path: path('M38 13 C38 13, 67 -4, 73 24 C78 46, 56 62, 38 78 C20 62, -2 46, 3 24 C9 -4, 38 13, 38 13 Z');
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255, 51, 102, 0.6);
+    box-shadow: 0 0 10px rgba(255, 0, 40, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,66 +202,47 @@ body {
     object-fit: cover;
 }
 
-/* SVG Heart's Reflection Decoration Overlay */
-.hearts-reflection-svg {
-    position: absolute;
-    inset: -6px;
-    width: 122px;
-    height: 122px;
-    z-index: 4;
-    pointer-events: none;
-    filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.8));
-}
-
-/* Constant Sparkles (No Opacity Fade, only Scaling Twinkle) */
-.sparkle-1 {
-    position: absolute;
-    top: 2px;
-    right: 15px;
-    width: 18px;
-    height: 18px;
-    z-index: 6;
-    pointer-events: none;
-    animation: sparkleScaleOnly 2s ease-in-out infinite;
-}
-
-.sparkle-2 {
-    position: absolute;
-    bottom: 25px;
-    left: 8px;
-    width: 16px;
-    height: 16px;
-    z-index: 6;
-    pointer-events: none;
-    animation: sparkleScaleOnly 2s ease-in-out infinite 0.7s;
-}
-
-@keyframes sparkleScaleOnly {
-    0%, 100% { transform: scale(0.7); }
-    50% { transform: scale(1.3); }
-}
-
-/* Username */
+/* Username with smooth professional prism loop */
 .username {
     font-family: "Press Start 2P", monospace;
     font-size: 22px;
-    background: linear-gradient(90deg, #fff, #ff9ebb, #fff, #ff9ebb, #fff);
-    background-size: 250% auto;
+    background: linear-gradient(90deg, #ff1a40, #990022, #ff1a40);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: prism 3s linear infinite;
+    animation: smoothPrism 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 50, 0.4));
 }
 
-@keyframes prism {
-    from { background-position: 0% center; }
-    to { background-position: 250% center; }
+@keyframes smoothPrism {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+.sub-info {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
 }
 
 .pronouns {
-    margin-top: 8px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    color: #ff4d6d;
+    background: rgba(60, 10, 20, 0.8);
+    padding: 3px 6px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 51, 102, 0.3);
+}
+
+.sleepy-status {
     font-family: "Dancing Script", cursive;
-    font-size: 23px;
-    color: #ff4d88;
+    font-size: 20px;
+    color: #ff99aa;
+    text-shadow: 0 0 6px rgba(255, 0, 50, 0.5);
 }
 
 /* About */
@@ -207,21 +250,21 @@ body {
     padding: 22px;
     min-height: 170px;
     border-radius: 18px;
-    background: rgba(95, 45, 65, 0.82);
-    border: 1px solid rgba(255, 180, 205, 0.5);
-    box-shadow: inset 0 0 20px rgba(40, 10, 20, 0.4), 0 0 15px rgba(180, 80, 110, 0.25);
+    background: rgba(35, 15, 22, 0.85);
+    border: 1px solid rgba(255, 51, 102, 0.3);
+    box-shadow: inset 0 0 20px rgba(20, 5, 10, 0.6), 0 0 15px rgba(120, 0, 30, 0.3);
     margin-bottom: 20px;
 }
 
 .about-title {
     font-family: "Press Start 2P", monospace;
     font-size: 12px;
-    color: #ffd1dc;
+    color: #ff8099;
     margin-bottom: 15px;
 }
 
 .about-text {
-    color: #ffe6ed;
+    color: #ffd9e2;
     font-size: 16px;
     line-height: 1.7;
 }
@@ -245,19 +288,19 @@ body {
 .stat {
     padding: 15px;
     border-radius: 15px;
-    background: rgba(95, 45, 65, 0.72);
-    border: 1px solid rgba(255, 180, 205, 0.45);
-    box-shadow: inset 0 0 15px rgba(40, 10, 20, 0.3), 0 0 10px rgba(180, 80, 110, 0.18);
+    background: rgba(35, 15, 22, 0.85);
+    border: 1px solid rgba(255, 51, 102, 0.3);
+    box-shadow: inset 0 0 15px rgba(20, 5, 10, 0.5), 0 0 10px rgba(120, 0, 30, 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat:hover {
     transform: translateY(-4px);
-    box-shadow: inset 0 0 15px rgba(40, 10, 20, 0.3), 0 0 18px rgba(255, 140, 175, 0.4);
+    box-shadow: inset 0 0 15px rgba(20, 5, 10, 0.5), 0 0 18px rgba(255, 51, 102, 0.4);
 }
 
 .stat-label {
-    color: #ffd1dc;
+    color: #ff8099;
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 7px;
@@ -277,9 +320,9 @@ body {
     padding: 14px;
     margin-bottom: 20px;
     border-radius: 18px;
-    background: rgba(95, 45, 65, 0.7);
-    border: 1px solid rgba(255, 180, 205, 0.5);
-    box-shadow: inset 0 0 15px rgba(40, 10, 20, 0.3), 0 0 12px rgba(180, 80, 110, 0.2);
+    background: rgba(35, 15, 22, 0.85);
+    border: 1px solid rgba(255, 51, 102, 0.3);
+    box-shadow: inset 0 0 15px rgba(20, 5, 10, 0.5), 0 0 12px rgba(120, 0, 30, 0.2);
 }
 
 .album {
@@ -288,8 +331,8 @@ body {
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.7);
-    box-shadow: 0 0 10px rgba(255, 140, 175, 0.6);
+    border: 2px solid rgba(255, 51, 102, 0.6);
+    box-shadow: 0 0 10px rgba(255, 0, 40, 0.5);
 }
 
 .song-info {
@@ -305,7 +348,7 @@ body {
 }
 
 .artist {
-    color: #ffd1dc;
+    color: #ff8099;
     font-size: 14px;
     margin-bottom: 12px;
 }
@@ -315,14 +358,14 @@ body {
     height: 5px;
     overflow: hidden;
     border-radius: 10px;
-    background: rgba(255,255,255,0.25);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .progress-fill {
     width: 0%;
     height: 100%;
     border-radius: 10px;
-    background: #ff9ebb;
+    background: #ff3366;
     animation: musicProgress 60s linear infinite;
 }
 
@@ -337,7 +380,7 @@ body {
     flex-shrink: 0;
     border: none;
     border-radius: 50%;
-    background: rgba(255, 110, 150, 0.85);
+    background: rgba(204, 0, 51, 0.85);
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -346,8 +389,8 @@ body {
 
 .play-button:hover {
     transform: scale(1.12);
-    background: rgba(255, 80, 130, 1);
-    box-shadow: 0 0 15px rgba(255, 110, 150, 0.8);
+    background: rgba(255, 0, 60, 1);
+    box-shadow: 0 0 15px rgba(255, 0, 50, 0.8);
 }
 
 /* Links */
@@ -364,15 +407,15 @@ body {
     text-align: center;
     color: white;
     font-weight: bold;
-    background: rgba(210, 90, 130, 0.75);
-    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(179, 0, 45, 0.75);
+    border: 1px solid rgba(255, 51, 102, 0.4);
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .link-button:hover {
     transform: translateY(-7px) scale(1.04);
-    background: rgba(200, 60, 110, 0.9);
-    box-shadow: 0 10px 25px rgba(210, 90, 130, 0.4);
+    background: rgba(210, 0, 55, 0.9);
+    box-shadow: 0 10px 25px rgba(255, 0, 50, 0.4);
 }
 
 /* Side banner */
@@ -382,15 +425,15 @@ body {
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 22px;
-    border: 3px solid rgba(255, 150, 180, 0.8);
-    background: rgba(255,255,255,0.18);
-    box-shadow: 0 0 15px rgba(255, 140, 170, 0.8), 0 0 35px rgba(255, 140, 170, 0.35);
+    border: 3px solid rgba(255, 26, 64, 0.6);
+    background: rgba(25, 12, 18, 0.75);
+    box-shadow: 0 0 15px rgba(255, 0, 40, 0.5), 0 0 35px rgba(150, 0, 20, 0.3);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .banner-frame:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 0 20px rgba(255, 140, 170, 0.9), 0 0 45px rgba(255, 140, 170, 0.45);
+    box-shadow: 0 0 20px rgba(255, 0, 40, 0.7), 0 0 45px rgba(150, 0, 20, 0.4);
 }
 
 .banner {
@@ -429,7 +472,7 @@ body {
 
 <body>
 
-<!-- Floating hearts -->
+<!-- Floating red hearts -->
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
@@ -445,73 +488,29 @@ body {
         <div class="profile">
 
             <div class="avatar-container">
+                <!-- Fuzzy Neon & Glitchy Spinning Outer Ring -->
+                <div class="neon-ring"></div>
 
-                <!-- Heart's Reflection Decoration Overlay -->
-                <svg class="hearts-reflection-svg" viewBox="0 0 100 100">
-                    <!-- Cute wings at the bottom -->
-                    <g transform="translate(18, 70)">
-                        <path d="M15 10 Q5 0 0 10 Q8 18 18 15 Z" fill="#fff" stroke="#ff4d88" stroke-width="2"/>
-                        <path d="M12 14 Q3 7 2 13 Q7 20 15 17 Z" fill="#ffb6c1"/>
-                    </g>
-                    <g transform="translate(64, 70) scale(-1, 1)">
-                        <path d="M15 10 Q5 0 0 10 Q8 18 18 15 Z" fill="#fff" stroke="#ff4d88" stroke-width="2"/>
-                        <path d="M12 14 Q3 7 2 13 Q7 20 15 17 Z" fill="#ffb6c1"/>
-                    </g>
+                <!-- Updated Butterfly PNG -->
+                <img class="widget-butterfly" src="https://i.ibb.co/23B5xvbX/Untitled-design.png" alt="Red Butterfly">
 
-                    <!-- Outer Metallic Pink Heart Frame -->
-                    <path d="M50 18 C50 18, 78 -2, 88 28 C96 52, 70 72, 50 92 C30 72, 4 52, 12 28 C22 -2, 50 18, 50 18 Z" 
-                          fill="none" stroke="url(#pinkGradient)" stroke-width="7" stroke-linejoin="round"/>
-                    
-                    <!-- Inner Crystal Facet Edges / Highlights -->
-                    <path d="M50 25 C50 25, 72 6, 80 30 C86 48, 64 64, 50 82 C36 64, 14 48, 20 30 C28 6, 50 25, 50 25 Z" 
-                          fill="rgba(255, 105, 180, 0.15)" stroke="#fff" stroke-width="2"/>
-
-                    <!-- Top crown/jewel accent -->
-                    <circle cx="50" cy="18" r="4" fill="#fff" stroke="#ff4d88" stroke-width="2"/>
-                    <circle cx="50" cy="18" r="1.5" fill="#00ffff"/>
-
-                    <!-- Bottom jewel accent -->
-                    <circle cx="50" cy="78" r="4" fill="#fff" stroke="#ff4d88" stroke-width="2"/>
-                    <circle cx="50" cy="78" r="1.5" fill="#00ffff"/>
-
-                    <!-- Bowtie under the heart -->
-                    <path d="M40 76 L50 71 L60 76 L50 81 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="2" stroke-linejoin="round"/>
-
-                    <defs>
-                        <linearGradient id="pinkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="35%" stop-color="#ff7da9"/>
-                            <stop offset="70%" stop-color="#ffb6c1"/>
-                            <stop offset="100%" stop-color="#ff3377"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-
-                <!-- Sparkles in front with constant visibility -->
-                <svg class="sparkle-1" viewBox="0 0 100 100">
-                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
-                </svg>
-                <svg class="sparkle-2" viewBox="0 0 100 100">
-                    <path d="M50 10 Q53 45 90 50 Q53 55 50 90 Q47 55 10 50 Q47 45 50 10 Z" fill="#ffb6c1" stroke="#ff4d88" stroke-width="5" stroke-linejoin="round"/>
-                </svg>
-
-                <!-- Profile Picture inside Fixed Heart Mask -->
-                <div class="avatar-heart-wrapper">
+                <!-- Profile Picture inside Circular Mask -->
+                <div class="avatar-circle-wrapper">
                     <img
                         class="avatar"
-                        src="https://i.ibb.co/M5MGWj9S/571eb3e7a8a1768dc7c09f5efcdde996.jpg"
+                        src="https://i.ibb.co/nMC6jcHj/d.jpg"
                         alt="Kittt Avatar"
                     >
                 </div>
-
             </div>
 
             <div>
                 <div class="username">
                     Kittt
                 </div>
-                <div class="pronouns">
-                    she/her
+                <div class="sub-info">
+                    <span class="pronouns">she/her</span>
+                    <span class="sleepy-status">hallucinating ~zzz</span>
                 </div>
             </div>
 
@@ -544,8 +543,8 @@ body {
                 <div class="stat-value">Cats & Rabbits</div>
             </div>
             <div class="stat">
-                <div class="stat-label">🕐 Current Time</div>
-                <div class="stat-value" id="currentTime">Loading...</div>
+                <div class="stat-label">✨ Interests</div>
+                <div class="stat-value">food, sleep, cats, shopping</div>
             </div>
         </div>
 
@@ -566,7 +565,7 @@ body {
             <button class="play-button" id="playButton">❚❚</button>
         </div>
 
-        <!-- Links -->
+        <!-- Links + Time Badge Row -->
         <div class="links">
             <a
                 class="link-button"
@@ -575,6 +574,9 @@ body {
             >
                 🧁 Kitty Crumbs Bakery
             </a>
+            <div class="link-button" style="cursor: default; background: rgba(25, 12, 18, 0.85);">
+                🕐 <span id="currentTime">Loading...</span>
+            </div>
         </div>
 
     </div>
@@ -583,8 +585,8 @@ body {
     <div class="banner-frame">
         <img
             class="banner"
-            src="https://i.ibb.co/Z6L7bTcz/c516abf15c71455a6ce60ec1e612f9b0.jpg"
-            alt="Flower Banner"
+            src="https://i.ibb.co/4Z2P02vM/a0f5972b-237b-4d99-8155-8c5b12a31be0.png"
+            alt="Anime Banner"
         >
     </div>
 
