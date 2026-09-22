@@ -202,18 +202,76 @@ body {
     font-size: 10px;
     color: #ff4d6d;
     background: rgba(60, 10, 20, 0.8);
-    padding: 3px 6px;
+    padding: 5px 8px;
     border-radius: 6px;
     border: 1px solid rgba(255, 51, 102, 0.3);
 }
 
-/* Butterfly replacing <3 */
+/* Butterfly Personal Badge with Hover Tooltip */
+.badge-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(60, 10, 20, 0.8);
+    padding: 3px 7px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 51, 102, 0.4);
+    box-shadow: 0 0 8px rgba(255, 0, 50, 0.3);
+    cursor: pointer;
+    animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+}
+
 .inline-butterfly {
-    width: 22px;
+    width: 18px;
     height: auto;
-    vertical-align: middle;
-    filter: drop-shadow(0 0 5px rgba(255, 0, 40, 0.9));
-    transform: rotate(15deg);
+    display: block;
+    filter: drop-shadow(0 0 4px rgba(255, 0, 40, 0.9));
+    transform: rotate(10deg);
+}
+
+/* Custom Tooltip Box */
+.badge-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 135%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    width: 155px;
+    background: rgba(30, 10, 18, 0.95);
+    border: 1px solid rgba(255, 51, 102, 0.5);
+    border-radius: 10px;
+    padding: 8px 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 0, 50, 0.4);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.badge-container:hover .badge-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-title {
+    font-family: "Press Start 2P", monospace;
+    font-size: 8px;
+    color: #ff8099;
+    margin-bottom: 4px;
+}
+
+.tooltip-desc {
+    font-size: 11px;
+    color: #ffd9e2;
+    line-height: 1.3;
 }
 
 /* About */
@@ -552,7 +610,13 @@ body {
                 </div>
                 <div class="sub-info">
                     <span class="pronouns">she/her</span>
-                    <img class="inline-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly">
+                    <div class="badge-container">
+                        <img class="inline-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly Badge">
+                        <div class="badge-tooltip">
+                            <div class="tooltip-title">Rosy Hope Badge</div>
+                            <div class="tooltip-desc">A fragile little signature :3</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
