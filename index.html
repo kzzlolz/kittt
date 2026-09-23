@@ -214,7 +214,7 @@ body {
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: 2px; /* Increased padding */
+    padding: 2px;
     border: none;
     box-shadow: none;
     cursor: pointer;
@@ -227,7 +227,7 @@ body {
 }
 
 .inline-butterfly {
-    width: 24px; /* Made the butterfly bigger (was 18px) */
+    width: 24px;
     height: auto;
     display: block;
     filter: drop-shadow(0 0 8px rgba(255, 0, 40, 0.9));
@@ -235,10 +235,10 @@ body {
     transition: transform 0.2s ease;
 }
 
-    .badge-container:hover .inline-butterfly {
-    transform: scale(1.15) rotate(15deg); /* Slight pop/spin when hovered */
+.badge-container:hover .inline-butterfly {
+    transform: scale(1.15) rotate(15deg);
 }
-    
+
 /* Custom Tooltip Box */
 .badge-tooltip {
     visibility: hidden;
@@ -258,7 +258,7 @@ body {
     z-index: 10;
     pointer-events: none;
 }
-    
+
 .badge-container:hover .badge-tooltip {
     visibility: visible;
     opacity: 1;
@@ -278,7 +278,7 @@ body {
     line-height: 1.4;
 }
 
-    /* About */
+/* About */
 .about {
     padding: 20px;
     min-height: 150px;
@@ -345,85 +345,13 @@ body {
     font-weight: bold;
 }
 
-/* Music Player */
+/* Spotify Embed Player Container */
 .music-player {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 12px;
     margin-bottom: 18px;
     border-radius: 18px;
-    background: rgba(35, 15, 22, 0.85);
+    overflow: hidden;
     border: 1px solid rgba(255, 51, 102, 0.3);
     box-shadow: inset 0 0 15px rgba(20, 5, 10, 0.5), 0 0 12px rgba(120, 0, 30, 0.2);
-}
-
-.album {
-    width: 65px;
-    height: 65px;
-    flex-shrink: 0;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid rgba(255, 51, 102, 0.6);
-    box-shadow: 0 0 10px rgba(255, 0, 40, 0.5);
-}
-
-.song-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.song-name {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-
-.artist {
-    color: #ff8099;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-
-.progress {
-    width: 100%;
-    height: 5px;
-    overflow: hidden;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.progress-fill {
-    width: 0%;
-    height: 100%;
-    border-radius: 10px;
-    background: #ff3366;
-    animation: musicProgress 60s linear infinite;
-}
-
-@keyframes musicProgress {
-    0% { width: 0%; }
-    100% { width: 100%; }
-}
-
-.play-button {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    border: none;
-    border-radius: 50%;
-    background: rgba(204, 0, 51, 0.85);
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.play-button:hover {
-    transform: scale(1.12);
-    background: rgba(255, 0, 60, 1);
-    box-shadow: 0 0 15px rgba(255, 0, 50, 0.8);
 }
 
 /* Links */
@@ -617,8 +545,8 @@ body {
                     <div class="badge-container">
                         <img class="inline-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly Badge">
                         <div class="badge-tooltip">
-                            <div class="tooltip-title">Rosy Hope Badge</div>
-                            <div class="tooltip-desc">A fragile little signature :3</div>
+                            <div class="tooltip-title">Crimson Papillon</div>
+                            <div class="tooltip-desc">An exclusive emblem of crimson wings, reserved for those who carry the beauty of the butterfly.</div>
                         </div>
                     </div>
                 </div>
@@ -658,21 +586,9 @@ body {
             </div>
         </div>
 
-        <!-- Music -->
+        <!-- Spotify Embed Player -->
         <div class="music-player">
-            <img
-                class="album"
-                src="https://i.scdn.co/image/ab67616d0000b273aeb64471596b00f380975ceb"
-                alt="Bad Romance Album Art"
-            >
-            <div class="song-info">
-                <div class="song-name">Bad Romance</div>
-                <div class="artist">Lady Gaga</div>
-                <div class="progress">
-                    <div class="progress-fill"></div>
-                </div>
-            </div>
-            <button class="play-button" id="playButton">❚❚</button>
+            <iframe style="border-radius:14px; width:100%; height:80px; display:block;" src="https://open.spotify.com/embed/track/05OhmynnhvFqg10a5L4jO3?utm_source=generator&theme=0" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <!-- Links Row -->
@@ -726,19 +642,6 @@ body {
 </div>
 
 <script>
-
-/* Music button simulation */
-const playButton = document.getElementById("playButton");
-let playing = true;
-
-playButton.addEventListener("click", () => {
-    playing = !playing;
-    if (playing) {
-        playButton.textContent = "❚❚";
-    } else {
-        playButton.textContent = "▶";
-    }
-});
 
 /* Live Singapore time */
 function updateTime() {
