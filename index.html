@@ -585,11 +585,18 @@ body {
                 <div class="stat-value">music, gaming, overworking, pet play</div>
             </div>
         </div>
-
-        <!-- Spotify Embed Player -->
-        <div class="music-player">
-            <iframe style="border-radius:14px; width:100%; height:80px; display:block;" src="https://open.spotify.com/embed/track/05OhmynnhvFqg10a5L4jO3?utm_source=generator&theme=0" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
+      <!-- Live Lanyard Spotify Card -->
+<div class="music-player" id="spotifyWidget" style="display: none;">
+    <img class="album" id="spotifyAlbum" src="" alt="Album Art">
+    <div class="song-info">
+        <div class="song-name" id="spotifySong">Not playing anything</div>
+        <div class="artist" id="spotifyArtist">Silence...</div>
+        <div class="progress">
+            <div class="progress-fill" id="spotifyProgress" style="animation: none; width: 100%;"></div>
         </div>
+    </div>
+</div>
 
         <!-- Links Row -->
         <div class="links">
@@ -674,6 +681,38 @@ document.addEventListener("mouseleave", () => {
     widget.style.transform = "translateY(0) rotateX(0) rotateY(0)";
 });
 
+    /* Lanyard Live Spotify Fetcher */
+const DISCORD_ID = "1209411379178635345";
+
+async function checkSpotifyStatus() {
+    try {
+        const response = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
+        const data = await response.json();
+        
+        const widget = document.getElementById("spotifyWidget");
+        
+        if (data.success && data.data.spotify) {
+            const spotify = data.data.spotify;
+            
+            widget.style.display = "flex";
+            document.getElementById("spotifySong").textContent = spotify.song;
+            document.getElementById("spotifyArtist").textContent = spotify.artist;
+            document.getElementById("spotifyAlbum").src = spotify.album_art_url;
+            
+            // Optional: calculate track progress percentage if desired
+        } else {
+            // Hide the widget if you aren't listening to anything right now
+            widget.style.display = "none";
+        }
+    } catch (error) {
+        console.error("Error fetching live Spotify status:", error);
+    }
+}
+
+// Check right away and then every 5 seconds
+checkSpotifyStatus();
+setInterval(checkSpotifyStatus, 5000);
+    
 </script>
 
 </body>
