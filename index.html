@@ -545,8 +545,7 @@ body {
                     <div class="badge-container">
                         <img class="inline-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly Badge">
                         <div class="badge-tooltip">
-                            <div class="tooltip-title">Crimson Papillon</div>
-                            <div class="tooltip-desc">An exclusive emblem of crimson wings, reserved for those who carry the beauty of the butterfly.</div>
+                            <div class="tooltip-title">The beauty of a butterfly...</div>
                         </div>
                     </div>
                 </div>
@@ -587,13 +586,14 @@ body {
         </div>
         
       <!-- Live Lanyard Spotify Card -->
-<div class="music-player" id="spotifyWidget" style="display: none;">
-    <img class="album" id="spotifyAlbum" src="" alt="Album Art">
-    <div class="song-info">
-        <div class="song-name" id="spotifySong">Not playing anything</div>
-        <div class="artist" id="spotifyArtist">Silence...</div>
-        <div class="progress">
-            <div class="progress-fill" id="spotifyProgress" style="animation: none; width: 100%;"></div>
+<div class="music-player" id="spotifyWidget" style="display: none; align-items: center; gap: 12px; padding: 12px 14px; background: rgba(35, 15, 22, 0.85); border-radius: 15px; border: 1px solid rgba(255, 51, 102, 0.3); margin-bottom: 18px;">
+    <img id="spotifyAlbum" src="" alt="Album Art" style="width: 48px; height: 48px; border-radius: 10px; object-fit: cover;">
+    <div style="overflow: hidden; width: 100%;">
+        <div id="spotifySong" style="color: white; font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Not playing anything</div>
+        <div id="spotifyArtist" style="color: #ff8099; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 6px;">Silence...</div>
+        <!-- Progress Bar -->
+        <div style="width: 100%; background: rgba(255, 255, 255, 0.1); height: 4px; border-radius: 2px; overflow: hidden;">
+            <div id="spotifyProgress" style="width: 0%; height: 100%; background: #ff1a40; transition: width 1s linear;"></div>
         </div>
     </div>
 </div>
@@ -684,6 +684,28 @@ document.addEventListener("mouseleave", () => {
     /* Lanyard Live Spotify Fetcher */
 const DISCORD_ID = "1209411379178635345";
 
+function updateSpotifyProgress(timestamps) {
+    const progressBar = document.getElementById("spotifyProgress");
+    if (!progressBar || !timestamps) return;
+
+    const start = timestamps.start;
+    const end = timestamps.end;
+    
+    function frame() {
+        const now = Date.now();
+        const current = now - start;
+        const total = end - start;
+        const progress = Math.min(Math.max((current / total) * 100, 0), 100);
+        
+        progressBar.style.width = progress + "%";
+        
+        if (current < total) {
+            requestAnimationFrame(frame);
+        }
+    }
+    frame();
+}
+
 async function checkSpotifyStatus() {
     try {
         const response = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
@@ -699,9 +721,8 @@ async function checkSpotifyStatus() {
             document.getElementById("spotifyArtist").textContent = spotify.artist;
             document.getElementById("spotifyAlbum").src = spotify.album_art_url;
             
-            // Optional: calculate track progress percentage if desired
+            updateSpotifyProgress(spotify.timestamps);
         } else {
-            // Hide the widget if you aren't listening to anything right now
             widget.style.display = "none";
         }
     } catch (error) {
@@ -709,7 +730,6 @@ async function checkSpotifyStatus() {
     }
 }
 
-// Check right away and then every 5 seconds
 checkSpotifyStatus();
 setInterval(checkSpotifyStatus, 5000);
     
