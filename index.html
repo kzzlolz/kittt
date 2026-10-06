@@ -49,31 +49,31 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Floating red hearts */
+/* Livelier floating red hearts */
 .heart {
     position: fixed;
     color: #ff1a40;
-    opacity: 0.4;
-    font-size: 25px;
+    opacity: 0.7;
+    font-size: 28px;
     pointer-events: none;
-    animation: floatHeart 7s linear infinite;
-    filter: drop-shadow(0 0 6px rgba(255, 0, 50, 0.6));
+    animation: floatHeart 5s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 60, 0.9));
 }
 
-.heart:nth-child(1) { left: 10%; bottom: -30px; animation-delay: 0s; }
-.heart:nth-child(2) { left: 25%; bottom: -40px; animation-delay: 2s; }
-.heart:nth-child(3) { left: 50%; bottom: -20px; animation-delay: 4s; }
-.heart:nth-child(4) { left: 75%; bottom: -30px; animation-delay: 1s; }
-.heart:nth-child(5) { left: 90%; bottom: -40px; animation-delay: 3s; }
-.heart:nth-child(6) { left: 15%; bottom: -30px; animation-delay: 2.5s; }
-.heart:nth-child(7) { left: 35%; bottom: -40px; animation-delay: 1.5s; }
-.heart:nth-child(8) { left: 65%; bottom: -20px; animation-delay: 3.5s; }
-.heart:nth-child(9) { left: 85%; bottom: -30px; animation-delay: 0.5s; }
+.heart:nth-child(1) { left: 8%; bottom: -30px; animation-delay: 0s; font-size: 22px; }
+.heart:nth-child(2) { left: 20%; bottom: -40px; animation-delay: 1.2s; font-size: 30px; }
+.heart:nth-child(3) { left: 38%; bottom: -20px; animation-delay: 2.5s; font-size: 25px; }
+.heart:nth-child(4) { left: 55%; bottom: -30px; animation-delay: 0.8s; font-size: 32px; }
+.heart:nth-child(5) { left: 72%; bottom: -40px; animation-delay: 1.8s; font-size: 20px; }
+.heart:nth-child(6) { left: 88%; bottom: -30px; animation-delay: 3s; font-size: 28px; }
+.heart:nth-child(7) { left: 15%; bottom: -30px; animation-delay: 1.5s; font-size: 26px; }
+.heart:nth-child(8) { left: 50%; bottom: -40px; animation-delay: 2.2s; font-size: 24px; }
+.heart:nth-child(9) { left: 82%; bottom: -20px; animation-delay: 0.4s; font-size: 34px; }
 
 @keyframes floatHeart {
-    0% { transform: translateY(0) scale(0.8) rotate(0deg); }
-    50% { transform: translateY(-50vh) scale(1.1) rotate(15deg); }
-    100% { transform: translateY(-110vh) scale(0.8) rotate(-15deg); }
+    0% { transform: translateY(0) scale(0.8) rotate(-10deg); opacity: 0.2; }
+    50% { transform: translateY(-55vh) scale(1.2) rotate(20deg); opacity: 0.8; }
+    100% { transform: translateY(-115vh) scale(0.7) rotate(-20deg); opacity: 0; }
 }
 
 /* Entire layout */
@@ -87,28 +87,30 @@ body {
     padding: 20px;
 }
 
-/* Main widget */
+/* Main widget with more lively pulsing shadow */
 .widget {
+    position: relative;
     width: 650px;
     max-width: 55vw;
     padding: 22px;
-    border: 3px solid rgba(255, 26, 64, 0.6);
+    border: 3px solid rgba(255, 26, 64, 0.8);
     border-radius: 25px;
-    background: rgba(25, 12, 18, 0.75);
+    background: rgba(25, 12, 18, 0.8);
     backdrop-filter: blur(15px);
-    box-shadow: 0 0 20px rgba(255, 0, 40, 0.4), 0 0 50px rgba(150, 0, 20, 0.2);
-    animation: widgetFloat 4s ease-in-out infinite;
+    box-shadow: 0 0 25px rgba(255, 0, 50, 0.6), 0 0 60px rgba(180, 0, 30, 0.3);
+    animation: widgetFloat 3.5s ease-in-out infinite;
     transform-style: preserve-3d;
     transition: transform 0.15s ease;
 }
 
 @keyframes widgetFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    0%, 100% { transform: translateY(0); box-shadow: 0 0 25px rgba(255, 0, 50, 0.6), 0 0 60px rgba(180, 0, 30, 0.3); }
+    50% { transform: translateY(-7px); box-shadow: 0 0 35px rgba(255, 0, 80, 0.8), 0 0 75px rgba(200, 0, 40, 0.4); }
 }
 
 /* Profile */
 .profile {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 18px;
@@ -136,10 +138,10 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 3px solid #ff1a40;
-    box-shadow: 0 0 12px #ff1a40, inset 0 0 8px #ff1a40;
+    box-shadow: 0 0 16px #ff1a40, inset 0 0 10px #ff1a40;
     pointer-events: none;
     z-index: 3;
-    animation: spinRing 12s linear infinite;
+    animation: spinRing 8s linear infinite;
 }
 
 @keyframes spinRing {
@@ -158,8 +160,8 @@ body {
     z-index: 2;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid rgba(255, 51, 102, 0.6);
-    box-shadow: 0 0 10px rgba(255, 0, 40, 0.5);
+    border: 2px solid rgba(255, 51, 102, 0.8);
+    box-shadow: 0 0 14px rgba(255, 0, 50, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -171,16 +173,16 @@ body {
     object-fit: cover;
 }
 
-/* Username with smooth prism loop */
+/* Brighter Name & More Visible Prism Loop */
 .username {
     font-family: "Press Start 2P", monospace;
-    font-size: 20px;
-    background: linear-gradient(90deg, #ff1a40, #990022, #ff1a40);
-    background-size: 200% auto;
+    font-size: 21px;
+    background: linear-gradient(90deg, #ff4d6d, #ff1a40, #ffffff, #ff1a40, #ff4d6d);
+    background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: smoothPrism 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(255, 0, 50, 0.4));
+    animation: smoothPrism 3s linear infinite;
+    filter: drop-shadow(0 0 12px rgba(255, 20, 60, 0.8));
 }
 
 @keyframes smoothPrism {
@@ -207,9 +209,11 @@ body {
     border: 1px solid rgba(255, 51, 102, 0.3);
 }
 
-/* Butterfly Personal Badge with Hover Tooltip */
+/* Shifted Butterfly Personal Badge to top right of the widget */
 .badge-container {
-    position: relative;
+    position: absolute;
+    top: 32px;
+    right: 180px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -218,25 +222,25 @@ body {
     border: none;
     box-shadow: none;
     cursor: pointer;
-    animation: badgeFloat 3s ease-in-out infinite;
+    animation: badgeFloat 2.5s ease-in-out infinite;
+    z-index: 5;
 }
 
 @keyframes badgeFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+    0%, 100% { transform: translateY(0) rotate(10deg); }
+    50% { transform: translateY(-6px) rotate(18deg); }
 }
 
 .inline-butterfly {
-    width: 24px;
+    width: 50px;
     height: auto;
     display: block;
-    filter: drop-shadow(0 0 8px rgba(255, 0, 40, 0.9));
-    transform: rotate(10deg);
+    filter: drop-shadow(0 0 12px rgba(255, 0, 60, 1));
     transition: transform 0.2s ease;
 }
 
 .badge-container:hover .inline-butterfly {
-    transform: scale(1.15) rotate(15deg);
+    transform: scale(1.25) rotate(22deg);
 }
 
 /* Custom Tooltip Box */
@@ -270,12 +274,6 @@ body {
     font-size: 10px;
     color: #ff8099;
     margin-bottom: 6px;
-}
-
-.tooltip-desc {
-    font-size: 13px;
-    color: #ffd9e2;
-    line-height: 1.4;
 }
 
 /* About */
@@ -354,15 +352,15 @@ body {
     box-shadow: inset 0 0 15px rgba(20, 5, 10, 0.5), 0 0 12px rgba(120, 0, 30, 0.2);
 }
 
-/* Links */
+/* Links (Smaller width centered button) */
 .links {
     display: flex;
-    gap: 12px;
+    justify-content: center;
 }
 
 .link-button {
-    flex: 1;
-    padding: 13px;
+    width: 60%;
+    padding: 12px;
     border-radius: 15px;
     text-decoration: none;
     text-align: center;
@@ -376,7 +374,7 @@ body {
 .link-button:hover {
     transform: translateY(-5px) scale(1.03);
     background: rgba(210, 0, 55, 0.9);
-    box-shadow: 0 8px 20px rgba(255, 0, 50, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 0, 50, 0.5);
 }
 
 /* Side Panels Container */
@@ -493,7 +491,7 @@ body {
 @media (max-width: 650px) {
     .widget { padding: 15px; }
     .username { font-size: 15px; }
-    .links { flex-direction: column; }
+    .link-button { width: 100%; }
     .stats { grid-template-columns: 1fr; }
     .side-panels { flex-direction: column; }
 }
@@ -503,7 +501,7 @@ body {
 
 <body>
 
-<!-- Floating red hearts -->
+<!-- Livelier Floating red hearts -->
 <div class="heart">♥</div>
 <div class="heart">♥</div>
 <div class="heart">♥</div>
@@ -519,6 +517,14 @@ body {
 
     <!-- Main Profile Widget -->
     <div class="widget">
+
+        <!-- Shifted Butterfly Badge -->
+        <div class="badge-container">
+            <img class="inline-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly Badge">
+            <div class="badge-tooltip">
+                <div class="tooltip-title">The Volitant Sanguine</div>
+            </div>
+        </div>
 
         <div class="profile">
 
@@ -542,12 +548,6 @@ body {
                 </div>
                 <div class="sub-info">
                     <span class="pronouns">she/her</span>
-                    <div class="badge-container">
-                        <img class="inline-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly Badge">
-                        <div class="badge-tooltip">
-                            <div class="tooltip-title">The Volitant Sanguine</div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -602,10 +602,10 @@ body {
         <div class="links">
             <a
                 class="link-button"
-                href="https://tinyurl.com/kittycrumbs-bakery"
+                href="https://discord.gg/nET4TTnRuA"
                 target="_blank"
             >
-                🧁 Kitty Crumbs Bakery
+                :3
             </a>
         </div>
 
@@ -681,7 +681,7 @@ document.addEventListener("mouseleave", () => {
     widget.style.transform = "translateY(0) rotateX(0) rotateY(0)";
 });
 
-    /* Lanyard Live Spotify Fetcher */
+/* Lanyard Live Spotify Fetcher */
 const DISCORD_ID = "1209411379178635345";
 
 function updateSpotifyProgress(timestamps) {
