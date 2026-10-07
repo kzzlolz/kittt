@@ -741,23 +741,6 @@ function updateTime() {
 updateTime();
 setInterval(updateTime, 1000);
 
-async function fetchServerMemberCount() {
-    try {
-        const response = await fetch('https://discord.com/api/guilds/1508402330913996841/widget.json');
-        const data = await response.json();
-        
-        if (data && data.members) {
-            const humanMembers = data.members.filter(member => !member.bot);
-            const humanCount = humanMembers.length;
-            document.getElementById('onlineCount').textContent = humanCount + ' moots online';
-        }
-    } catch (error) {
-      
-    }
-}
-
-fetchServerMemberCount();
-
 function toggleTab(tabId, btnElement) {
     const targetTab = document.getElementById(tabId);
     const isActive = targetTab.classList.contains('active');
