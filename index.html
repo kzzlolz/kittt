@@ -708,9 +708,8 @@ body.gradient-active {
                     <img class="discord-icon" src="https://i.ibb.co/nMC6jcHj/d.jpg" alt="Server Icon">
                     <div class="discord-info">
                         <div class="discord-name">Kittt's Lounge</div>
-                        <div class="discord-status"><span class="status-dot"></span> Stupidly cozy</div>
+                        <div class="discord-status"><span class="status-dot"></span> <span id="onlineCount">Stupidly cozy</span></div>
                     </div>
-                    <div class="discord-status"><span class="status-dot"></span> <span id="onlineCount">Loading...</span> online</div>
                 </div>
                 <div class="about-text" style="margin-bottom: 20px; font-size: 14px;">
                     Casual talks, weird ppl, and a lot of fun :3
@@ -741,6 +740,23 @@ function updateTime() {
 
 updateTime();
 setInterval(updateTime, 1000);
+
+async function fetchServerMemberCount() {
+    try {
+        const response = await fetch('https://discord.com/api/guilds/1508402330913996841/widget.json');
+        const data = await response.json();
+        
+        if (data && data.members) {
+            const humanMembers = data.members.filter(member => !member.bot);
+            const humanCount = humanMembers.length;
+            document.getElementById('onlineCount').textContent = humanCount + ' moots online';
+        }
+    } catch (error) {
+      
+    }
+}
+
+fetchServerMemberCount();
 
 function toggleTab(tabId, btnElement) {
     const targetTab = document.getElementById(tabId);
@@ -779,26 +795,6 @@ document.addEventListener("mouseleave", () => {
         widget.style.transform = "translateY(0) rotateX(0) rotateY(0)";
     }
 });
-    
-    async function fetchServerMemberCount() {
-    try {
-        const response = await fetch('https://discord.com/api/guilds/1508402330913996841/widget.json');
-        const data = await response.json();
-        
-        if (data && data.members) {
-            const humanMembers = data.members.filter(member => !member.bot);
-            const humanCount = humanMembers.length;
-            
-            document.getElementById('onlineCount').textContent = humanCount + ' humans';
-        } else {
-            document.getElementById('onlineCount').textContent = 'Stupidly cozy';
-        }
-    } catch (error) {
-        document.getElementById('onlineCount').textContent = 'Stupidly cozy';
-    }
-}
-
-fetchServerMemberCount();
 </script>
 
 </body>
