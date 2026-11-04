@@ -3,19 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kittt's Profile</title>
+<title>Kzz's Profile</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Kittt's Profile">
+<meta property="og:title" content="Kzz's Profile">
 <meta property="og:description" content="Mreow~! :3">
-<meta property="og:image" content="https://i.ibb.co/nMC6jcHj/d.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/a63251e802ac0ddb324eff8318e16559.jpg">
 <meta property="og:url" content="https://kzzlolz.github.io/kittt/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kittt's Profile">
+<meta name="twitter:title" content="Kzz's Profile">
 <meta name="twitter:description" content="Mreow~! :3">
-<meta name="twitter:image" content="https://i.ibb.co/nMC6jcHj/d.jpg">
-<link rel="icon" type="image/jpeg" href="https://i.ibb.co/nMC6jcHj/d.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/a63251e802ac0ddb324eff8318e16559.jpg">
+<link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/a63251e802ac0ddb324eff8318e16559.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
+:root {
+    --primary-red: #ff1a40;
+    --rose-crimson: #b3002d;
+    --dark-bg: rgba(20, 9, 14, 0.88);
+    --card-border: rgba(255, 26, 64, 0.75);
+    --text-color: #ffd9e2;
+    --glow-shadow: rgba(255, 0, 60, 0.6);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -36,85 +45,88 @@ body {
 }
 
 body.gradient-active {
-    background: linear-gradient(180deg, rgba(20, 10, 15, 0.85), rgba(35, 12, 20, 0.95)), url("https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/7c12727320e9107bd656c581af98067f.gif");
+    background: linear-gradient(180deg, rgba(15, 5, 10, 0.9), rgba(30, 8, 15, 0.95)), url("https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/7c12727320e9107bd656c581af98067f.gif");
     background-size: cover;
     background-position: center;
 }
 
-.heart {
+/* Floating Particles: Butterflies & Roses */
+.particle {
     position: fixed;
-    color: #ff1a40;
-    opacity: 0.7;
-    font-size: 28px;
+    opacity: 0.8;
     pointer-events: none;
-    animation: floatHeart 5s linear infinite;
-    filter: drop-shadow(0 0 10px rgba(255, 0, 60, 0.9));
+    animation: floatUp 6s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 60, 0.8));
+    user-select: none;
 }
 
-.heart:nth-child(1) { left: 8%; bottom: -30px; animation-delay: 0s; font-size: 22px; }
-.heart:nth-child(2) { left: 20%; bottom: -40px; animation-delay: 1.2s; font-size: 30px; }
-.heart:nth-child(3) { left: 38%; bottom: -20px; animation-delay: 2.5s; font-size: 25px; }
-.heart:nth-child(4) { left: 55%; bottom: -30px; animation-delay: 0.8s; font-size: 32px; }
-.heart:nth-child(5) { left: 72%; bottom: -40px; animation-delay: 1.8s; font-size: 20px; }
-.heart:nth-child(6) { left: 88%; bottom: -30px; animation-delay: 3s; font-size: 28px; }
-.heart:nth-child(7) { left: 15%; bottom: -30px; animation-delay: 1.5s; font-size: 26px; }
-.heart:nth-child(8) { left: 50%; bottom: -40px; animation-delay: 2.2s; font-size: 24px; }
-.heart:nth-child(9) { left: 82%; bottom: -20px; animation-delay: 0.4s; font-size: 34px; }
+.particle:nth-child(1) { left: 5%; bottom: -30px; animation-delay: 0s; font-size: 22px; }
+.particle:nth-child(2) { left: 18%; bottom: -40px; animation-delay: 1.2s; font-size: 28px; }
+.particle:nth-child(3) { left: 33%; bottom: -20px; animation-delay: 2.5s; font-size: 24px; }
+.particle:nth-child(4) { left: 52%; bottom: -30px; animation-delay: 0.8s; font-size: 30px; }
+.particle:nth-child(5) { left: 70%; bottom: -40px; animation-delay: 1.8s; font-size: 20px; }
+.particle:nth-child(6) { left: 85%; bottom: -30px; animation-delay: 3s; font-size: 26px; }
+.particle:nth-child(7) { left: 12%; bottom: -30px; animation-delay: 1.5s; font-size: 24px; }
+.particle:nth-child(8) { left: 45%; bottom: -40px; animation-delay: 2.2s; font-size: 26px; }
+.particle:nth-child(9) { left: 80%; bottom: -20px; animation-delay: 0.4s; font-size: 32px; }
 
-@keyframes floatHeart {
-    0% { transform: translateY(0) scale(0.8) rotate(-10deg); opacity: 0.2; }
-    50% { transform: translateY(-55vh) scale(1.2) rotate(20deg); opacity: 0.8; }
-    100% { transform: translateY(-115vh) scale(0.7) rotate(-20deg); opacity: 0; }
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(0.8) rotate(-15deg); opacity: 0.2; }
+    50% { transform: translateY(-55vh) scale(1.15) rotate(15deg); opacity: 0.85; }
+    100% { transform: translateY(-115vh) scale(0.7) rotate(-25deg); opacity: 0; }
 }
 
 .main-container {
     display: flex;
     align-items: center;
-    gap: 40px;
     width: 100%;
     max-width: 1250px;
     justify-content: center;
+    position: relative;
 }
 
+/* Nav Menu Positioned at Bottom Left */
 .nav-menu {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    z-index: 10;
-    width: 220px;
-    flex-shrink: 0;
+    z-index: 100;
+    width: 170px;
 }
 
 .nav-btn {
     font-family: "Press Start 2P", monospace;
     font-size: 10px;
-    padding: 14px 18px;
-    border-radius: 8px;
+    padding: 14px 16px;
+    border-radius: 12px;
     cursor: pointer;
-    background: rgba(25, 12, 18, 0.45);
+    background: rgba(25, 10, 16, 0.75);
     color: #ff8099;
-    border: 2px solid rgba(255, 51, 102, 0.4);
-    backdrop-filter: blur(10px);
+    border: 2px solid var(--card-border);
+    backdrop-filter: blur(12px);
     transition: all 0.25s ease;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 0, 50, 0.2);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 0, 50, 0.25);
     text-align: center;
     width: 100%;
 }
 
 .nav-btn:hover {
-    background: rgba(179, 0, 45, 0.5);
+    background: rgba(179, 0, 45, 0.65);
     color: white;
-    border-color: rgba(255, 51, 102, 0.8);
-    transform: translateX(4px);
-    box-shadow: inset 0 0 10px rgba(255, 51, 102, 0.3), 0 0 20px rgba(255, 0, 50, 0.4);
+    border-color: rgba(255, 51, 102, 0.9);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: inset 0 0 10px rgba(255, 51, 102, 0.4), 0 0 20px rgba(255, 0, 50, 0.5);
 }
 
 .nav-btn.active {
-    background: rgba(179, 0, 45, 0.85);
+    background: rgba(179, 0, 45, 0.9);
     color: white;
-    border-color: #ff1a40;
-    transform: translateX(4px);
-    box-shadow: inset 0 0 10px rgba(255, 51, 102, 0.5), 0 0 25px rgba(255, 0, 50, 0.7);
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+    box-shadow: inset 0 0 12px rgba(255, 51, 102, 0.6), 0 0 25px rgba(255, 0, 50, 0.85);
 }
 
 .content-area {
@@ -129,7 +141,7 @@ body.gradient-active {
     width: 100%;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.35s ease;
 }
 
 .tab-content.active {
@@ -137,7 +149,7 @@ body.gradient-active {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -145,36 +157,37 @@ body.gradient-active {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 24px;
     width: 100%;
 }
 
+/* Widget Styles */
 .widget {
     position: relative;
     width: 650px;
     max-width: 55vw;
-    padding: 22px;
-    border: 3px solid rgba(255, 26, 64, 0.8);
+    padding: 24px;
+    border: 3px solid var(--card-border);
     border-radius: 25px;
-    background: rgba(25, 12, 18, 0.8);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 25px rgba(255, 0, 50, 0.6), 0 0 60px rgba(180, 0, 30, 0.3);
-    animation: widgetFloat 3.5s ease-in-out infinite;
+    background: var(--dark-bg);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 30px var(--glow-shadow), 0 0 65px rgba(180, 0, 30, 0.35);
+    animation: widgetFloat 3.8s ease-in-out infinite;
     transform-style: preserve-3d;
     transition: transform 0.15s ease;
 }
 
-.discord-widget-card {
-    width: 420px;
+.discord-widget-card, .socials-widget-card {
+    width: 450px;
     max-width: 90vw;
     padding: 25px;
-    border: 3px solid rgba(255, 26, 64, 0.8);
+    border: 3px solid var(--card-border);
     border-radius: 25px;
-    background: rgba(25, 12, 18, 0.85);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 25px rgba(255, 0, 50, 0.6), 0 0 60px rgba(180, 0, 30, 0.3);
+    background: var(--dark-bg);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 30px var(--glow-shadow), 0 0 65px rgba(180, 0, 30, 0.35);
     text-align: center;
-    animation: widgetFloat 3.5s ease-in-out infinite;
+    animation: widgetFloat 3.8s ease-in-out infinite;
 }
 
 .discord-server-header {
@@ -182,23 +195,22 @@ body.gradient-active {
     align-items: center;
     gap: 15px;
     margin-bottom: 20px;
-    background: rgba(35, 15, 22, 0.85);
+    background: rgba(35, 12, 20, 0.85);
     padding: 15px;
     border-radius: 18px;
-    border: 1px solid rgba(255, 51, 102, 0.3);
+    border: 1px solid rgba(255, 51, 102, 0.35);
 }
 
 .discord-icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #ff1a40;
+    border: 2px solid var(--primary-red);
     object-fit: cover;
+    box-shadow: 0 0 10px var(--primary-red);
 }
 
-.discord-info {
-    text-align: left;
-}
+.discord-info { text-align: left; }
 
 .discord-name {
     font-family: "Press Start 2P", monospace;
@@ -224,8 +236,8 @@ body.gradient-active {
 }
 
 @keyframes widgetFloat {
-    0%, 100% { transform: translateY(0); box-shadow: 0 0 25px rgba(255, 0, 50, 0.6), 0 0 60px rgba(180, 0, 30, 0.3); }
-    50% { transform: translateY(-7px); box-shadow: 0 0 35px rgba(255, 0, 80, 0.8), 0 0 75px rgba(200, 0, 40, 0.4); }
+    0%, 100% { transform: translateY(0); box-shadow: 0 0 25px var(--glow-shadow), 0 0 60px rgba(180, 0, 30, 0.3); }
+    50% { transform: translateY(-7px); box-shadow: 0 0 40px rgba(255, 0, 80, 0.85), 0 0 75px rgba(200, 0, 40, 0.45); }
 }
 
 .profile {
@@ -248,22 +260,23 @@ body.gradient-active {
 
 .neon-ring {
     position: absolute;
-    width: 130px;
-    height: 130px;
+    width: 132px;
+    height: 132px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 3px solid #ff1a40;
-    box-shadow: 0 0 16px #ff1a40, inset 0 0 10px #ff1a40;
+    border: 3px dashed var(--primary-red);
+    box-shadow: 0 0 20px var(--primary-red), inset 0 0 10px var(--primary-red);
     pointer-events: none;
     z-index: 3;
-    animation: spinRing 8s linear infinite;
+    animation: spinGlitch 6s linear infinite;
 }
 
-@keyframes spinRing {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+@keyframes spinGlitch {
+    0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0.9; }
+    50% { transform: translate(-50%, -50%) rotate(180deg); opacity: 1; filter: drop-shadow(0 0 8px #ff0040); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); opacity: 0.9; }
 }
 
 .avatar-circle-wrapper {
@@ -276,8 +289,8 @@ body.gradient-active {
     z-index: 2;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid rgba(255, 51, 102, 0.8);
-    box-shadow: 0 0 14px rgba(255, 0, 50, 0.7);
+    border: 2px solid rgba(255, 51, 102, 0.9);
+    box-shadow: 0 0 16px rgba(255, 0, 50, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -319,77 +332,17 @@ body.gradient-active {
     font-family: "Press Start 2P", monospace;
     font-size: 10px;
     color: #ff4d6d;
-    background: rgba(60, 10, 20, 0.8);
+    background: rgba(60, 10, 20, 0.85);
     padding: 5px 8px;
     border-radius: 6px;
-    border: 1px solid rgba(255, 51, 102, 0.3);
-}
-
-.badge-container {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    padding: 2px;
-    border: none;
-    box-shadow: none;
-    cursor: pointer;
-    animation: none;
-    z-index: 5;
-    vertical-align: middle;
-}
-
-.inline-butterfly {
-    width: 42px;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 0 12px rgba(255, 0, 60, 1));
-    transition: transform 0.2s ease;
-}
-
-.badge-container:hover .inline-butterfly {
-    transform: scale(1.25) rotate(12deg);
-}
-
-.badge-tooltip {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    bottom: 160%;
-    left: 50%;
-    transform: translateX(-50%) translateY(5px);
-    width: 210px;
-    background: rgba(30, 10, 18, 0.95);
-    border: 1.5px solid rgba(255, 51, 102, 0.6);
-    border-radius: 12px;
-    padding: 12px 14px;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(255, 0, 50, 0.5);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.badge-container:hover .badge-tooltip {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-.tooltip-title {
-    font-family: "Press Start 2P", monospace;
-    font-size: 10px;
-    color: #ff8099;
-    margin-bottom: 6px;
+    border: 1px solid rgba(255, 51, 102, 0.35);
 }
 
 .about {
     padding: 20px;
-    min-height: 150px;
     border-radius: 18px;
-    background: rgba(35, 15, 22, 0.85);
-    border: 1px solid rgba(255, 51, 102, 0.3);
+    background: rgba(35, 12, 20, 0.85);
+    border: 1px solid rgba(255, 51, 102, 0.35);
     box-shadow: inset 0 0 20px rgba(20, 5, 10, 0.6), 0 0 15px rgba(120, 0, 30, 0.3);
     margin-bottom: 18px;
 }
@@ -402,17 +355,14 @@ body.gradient-active {
 }
 
 .about-text {
-    color: #ffd9e2;
-    font-size: 15px;
+    color: var(--text-color);
+    font-size: 14px;
     line-height: 1.7;
+    font-style: italic;
 }
 
 .about-text p {
-    margin: 0 0 12px 0;
-}
-
-.about-text p:last-child {
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .stats {
@@ -425,15 +375,15 @@ body.gradient-active {
 .stat {
     padding: 14px;
     border-radius: 15px;
-    background: rgba(35, 15, 22, 0.85);
-    border: 1px solid rgba(255, 51, 102, 0.3);
+    background: rgba(35, 12, 20, 0.85);
+    border: 1px solid rgba(255, 51, 102, 0.35);
     box-shadow: inset 0 0 15px rgba(20, 5, 10, 0.5), 0 0 10px rgba(120, 0, 30, 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat:hover {
     transform: translateY(-4px);
-    box-shadow: inset 0 0 15px rgba(20, 5, 10, 0.5), 0 0 18px rgba(255, 51, 102, 0.4);
+    box-shadow: inset 0 0 15px rgba(20, 5, 10, 0.5), 0 0 18px rgba(255, 51, 102, 0.45);
 }
 
 .stat-label {
@@ -462,16 +412,53 @@ body.gradient-active {
     text-align: center;
     color: white;
     font-weight: bold;
-    background: rgba(179, 0, 45, 0.75);
-    border: 1px solid rgba(255, 51, 102, 0.4);
+    background: rgba(179, 0, 45, 0.8);
+    border: 1px solid rgba(255, 51, 102, 0.5);
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .link-button:hover {
     transform: translateY(-3px) scale(1.02);
-    background: rgba(210, 0, 55, 0.9);
-    box-shadow: 0 8px 20px rgba(255, 0, 50, 0.5);
+    background: rgba(210, 0, 55, 0.95);
+    box-shadow: 0 8px 20px rgba(255, 0, 50, 0.6);
 }
+
+/* Socials Custom Buttons Grid */
+.socials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-btn {
+    padding: 12px 14px;
+    border-radius: 14px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    color: white;
+    border: 1px solid rgba(255, 51, 102, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* Specific Social Brand Themes */
+.btn-roblox { background: rgba(220, 38, 38, 0.45); border-color: #ef4444; }
+.btn-twitch { background: rgba(145, 70, 255, 0.4); border-color: #9146FF; }
+.btn-discord { background: rgba(88, 101, 242, 0.4); border-color: #5865F2; }
+.btn-ubisoft { background: rgba(0, 115, 207, 0.4); border-color: #0073cf; }
+.btn-playstation { background: rgba(0, 55, 145, 0.4); border-color: #00439c; }
+.btn-spotify { background: rgba(29, 185, 84, 0.4); border-color: #1DB954; }
+.btn-steam { background: rgba(23, 26, 33, 0.7); border-color: #2a475e; grid-column: span 2; }
 
 .side-panels {
     display: flex;
@@ -486,8 +473,8 @@ body.gradient-active {
     aspect-ratio: 9 / 13;
     overflow: hidden;
     border-radius: 20px;
-    border: 3px solid rgba(255, 26, 64, 0.6);
-    background: rgba(25, 12, 18, 0.75);
+    border: 3px solid var(--card-border);
+    background: rgba(25, 10, 16, 0.75);
     box-shadow: 0 0 15px rgba(255, 0, 40, 0.5), 0 0 35px rgba(150, 0, 20, 0.3);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -509,10 +496,10 @@ body.gradient-active {
     width: 100%;
     padding: 18px;
     border-radius: 20px;
-    background: rgba(25, 12, 18, 0.85);
-    border: 3px solid rgba(255, 26, 64, 0.6);
+    background: var(--dark-bg);
+    border: 3px solid var(--card-border);
     box-shadow: 0 0 15px rgba(255, 0, 40, 0.4), 0 0 30px rgba(150, 0, 20, 0.2);
-    color: #ffd9e2;
+    color: var(--text-color);
     font-size: 13px;
     display: flex;
     flex-direction: column;
@@ -541,14 +528,14 @@ body.gradient-active {
 .clock-label {
     color: #ff8099;
     font-family: "Press Start 2P", monospace;
-    font-size: 9px;
+    font-size: 8px;
 }
 
 .clock-val {
     font-weight: bold;
     color: #fff;
     font-family: monospace;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .clock-footer {
@@ -564,16 +551,20 @@ body.gradient-active {
     body {
         overflow-y: auto;
         align-items: center;
-        padding: 20px 0;
+        padding: 20px 0 90px 0;
     }
     .main-container {
         flex-direction: column;
         align-items: center;
     }
     .nav-menu {
+        position: fixed;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
         flex-direction: row;
-        width: 100%;
-        max-width: 92vw;
+        width: calc(100% - 30px);
+        max-width: 450px;
         justify-content: center;
     }
     .layout {
@@ -599,59 +590,53 @@ body.gradient-active {
     .username { font-size: 16px; }
     .stats { grid-template-columns: 1fr; }
     .side-panels { flex-direction: column; }
+    .socials-grid { grid-template-columns: 1fr; }
+    .social-btn { grid-column: span 1 !important; }
 }
 </style>
 </head>
 <body>
 
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
+<!-- Floating Background Particles -->
+<div class="particle">🌹</div>
+<div class="particle">🦋</div>
+<div class="particle">🌹</div>
+<div class="particle">🦋</div>
+<div class="particle">🌹</div>
+<div class="particle">🦋</div>
+<div class="particle">🌹</div>
+<div class="particle">🦋</div>
+<div class="particle">🌹</div>
 
 <div class="main-container">
-    <div class="nav-menu">
-        <button class="nav-btn" id="profileBtn" onclick="toggleTab('profileTab', this)">Profile!</button>
-        <button class="nav-btn" id="discordBtn" onclick="toggleTab('discordTab', this)">< ^°^></button>
-    </div>
 
     <div class="content-area">
-        <div id="profileTab" class="tab-content">
+        <!-- PROFILE TAB -->
+        <div id="profileTab" class="tab-content active">
             <div class="layout">
                 <div class="widget">
                     <div class="profile">
                         <div class="avatar-container">
                             <div class="neon-ring"></div>
                             <div class="avatar-circle-wrapper">
-                                <img class="avatar" src="https://i.ibb.co/nMC6jcHj/d.jpg" alt="Kittt Avatar">
+                                <img class="avatar" src="https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/a63251e802ac0ddb324eff8318e16559.jpg" alt="Kzz Avatar">
                             </div>
                         </div>
                         <div>
-                            <div class="username">Kittt</div>
+                            <div class="username">Kzz</div>
                             <div class="sub-info">
-                                <span class="pronouns">she/her</span>
-                                <div class="badge-container">
-                                    <img class="inline-butterfly" src="https://raw.github.com/kzzlolz/kittt/08acfe2ae273bbc38b6dc32b3be3609151a56665/Untitled%20design.png" alt="Red Butterfly Badge">
-                                    <div class="badge-tooltip">
-                                        <div class="tooltip-title">The Volitant Sanguine</div>
-                                    </div>
-                                </div>
+                                <span class="pronouns">she/her 🦋</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="about">
-                        <div class="about-title">About Me</div>
+                        <div class="about-title">Bio</div>
                         <div class="about-text">
-                            <p>Introvert</p>
-                            <p>I either play or sleep all day.</p>
-                            <p>Short, but dangerous >:3</p>
+                            <p>"Sometimes, it's best to let the rose wither, leaving another beautiful rose to take its place."</p>
                         </div>
+                        <!-- Spotify Playlist Embed -->
+                        <iframe data-testid="embed-iframe" style="border-radius:12px; margin-top: 15px;" src="https://open.spotify.com/embed/playlist/0KAuGGU4dEOi0QLP8rUrJJ?utm_source=generator&si=15b02e966ac24ef9" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
 
                     <div class="stats">
@@ -669,26 +654,26 @@ body.gradient-active {
                         </div>
                         <div class="stat">
                             <div class="stat-label">✨ Interests</div>
-                            <div class="stat-value">music, gaming, overworking, playing with animals</div>
+                            <div class="stat-value">music, gaming, overworking</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="side-panels">
                     <div class="banner-frame">
-                        <img class="banner" src="https://i.ibb.co/4Z2P02vM/a0f5972b-237b-4d99-8155-8c5b12a31be0.png" alt="Anime Banner">
+                        <img class="banner" src="https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/4c51d954b267141fd02a0114a5ba60c0.png" alt="Anime Banner">
                     </div>
                     <div class="clock-panel">
                         <div class="clock-item">
-                            <span class="clock-label">TIME</span>
-                            <span class="clock-val" id="currentTime">--:--:--</span>
+                            <span class="clock-label">MY TIME (SG)</span>
+                            <span class="clock-val" id="sgTime">--:--:--</span>
+                        </div>
+                        <div class="clock-item">
+                            <span class="clock-label">YOUR TIME</span>
+                            <span class="clock-val" id="localTime">--:--:--</span>
                         </div>
                         <div class="clock-item">
                             <span class="clock-label">COUNTRY</span>
-                            <span class="clock-val">Singapore</span>
-                        </div>
-                        <div class="clock-item">
-                            <span class="clock-label">CITY</span>
                             <span class="clock-val">Singapore</span>
                         </div>
                         <div class="clock-item">
@@ -701,18 +686,38 @@ body.gradient-active {
             </div>
         </div>
 
+        <!-- SOCIALS TAB -->
+        <div id="socialsTab" class="tab-content">
+            <div class="socials-widget-card">
+                <div class="about-title" style="margin-bottom: 15px;">Socials</div>
+                <div class="about-text" style="margin-bottom: 15px; font-style: normal; font-size: 13px;">
+                    Find me across the web ✨
+                </div>
+                <div class="socials-grid">
+                    <a class="social-btn btn-roblox" href="https://www.roblox.com/users/3995400998/profile" target="_blank">Roblox</a>
+                    <a class="social-btn btn-twitch" href="https://www.twitch.tv/1kittykats1" target="_blank">Twitch</a>
+                    <a class="social-btn btn-discord" href="https://discord.com/users/1209411379178635345" target="_blank">Discord</a>
+                    <a class="social-btn btn-ubisoft" href="#" onclick="alert('Ubisoft Username: Kzz_lolz'); return false;">Ubisoft: Kzz_lolz</a>
+                    <a class="social-btn btn-playstation" href="https://profile.playstation.com/Kzz_lolz" target="_blank">PlayStation</a>
+                    <a class="social-btn btn-spotify" href="https://open.spotify.com/user/315jqfwhxu7is2i27z2ortr7r57q?si=01f49b1fc456431f" target="_blank">Spotify</a>
+                    <a class="social-btn btn-steam" href="https://steamcommunity.com/id/1kittykats1/" target="_blank">Steam</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DISCORD LOUNGE TAB -->
         <div id="discordTab" class="tab-content">
             <div class="discord-widget-card">
-                <div class="about-title" style="margin-bottom: 15px;">< ^°^></div>
+                <div class="about-title" style="margin-bottom: 15px;">Discord</div>
                 <div class="discord-server-header">
-                    <img class="discord-icon" src="https://i.ibb.co/nMC6jcHj/d.jpg" alt="Server Icon">
+                    <img class="discord-icon" src="https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/05d4be2d0bc3f9ef7a06b63a0ca7ba3c.jpg" alt="Server Icon">
                     <div class="discord-info">
-                        <div class="discord-name">Kittt's Lounge</div>
-                        <div class="discord-status"><span class="status-dot"></span> <span id="onlineCount">Stupidly cozy</span></div>
+                        <div class="discord-name">Kzz's Lounge</div>
+                        <div class="discord-status"><span class="status-dot"></span> <span id="onlineCount"></span></div>
                     </div>
                 </div>
-                <div class="about-text" style="margin-bottom: 20px; font-size: 14px;">
-                    Casual talks, weird ppl, and a lot of fun :3
+                <div class="about-text" style="margin-bottom: 20px; font-size: 14px; font-style: normal;">
+                    &lt;3
                 </div>
                 <div class="links">
                     <a class="link-button" href="https://tinyurl.com/kitts-lounge" target="_blank">Join Server!</a>
@@ -720,21 +725,41 @@ body.gradient-active {
             </div>
         </div>
     </div>
+
+</div>
+
+<!-- Bottom Left Navigation Menu -->
+<div class="nav-menu">
+    <button class="nav-btn active" id="profileBtn" onclick="toggleTab('profileTab', this)">Profile!</button>
+    <button class="nav-btn" id="socialsBtn" onclick="toggleTab('socialsTab', this)">Socials</button>
+    <button class="nav-btn" id="discordBtn" onclick="toggleTab('discordTab', this)">Discord</button>
 </div>
 
 <script>
 function updateTime() {
     const now = new Date();
-    const singaporeTime = now.toLocaleTimeString("en-SG", {
+    
+    const sgTime = now.toLocaleTimeString("en-SG", {
         timeZone: "Asia/Singapore",
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
         hour12: false
     });
-    const clockElement = document.getElementById("currentTime");
-    if (clockElement) {
-        clockElement.textContent = singaporeTime;
+    const sgElement = document.getElementById("sgTime");
+    if (sgElement) {
+        sgElement.textContent = sgTime;
+    }
+
+    const localTime = now.toLocaleTimeString(undefined, {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    });
+    const localElement = document.getElementById("localTime");
+    if (localElement) {
+        localElement.textContent = localTime;
     }
 }
 
