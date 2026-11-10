@@ -590,7 +590,8 @@ body.gradient-active {
     .username { font-size: 16px; }
     .stats { grid-template-columns: 1fr; }
     .side-panels { flex-direction: column; }
-    .socials-grid { grid-template-columns: 1fr; }
+    /* Keep the final Steam and Dreamy Cascade links side by side on mobile too */
+    .socials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .social-btn { grid-column: span 1 !important; }
 }
 
