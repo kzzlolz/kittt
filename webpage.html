@@ -321,7 +321,8 @@ function animateTabTitle(){
     titleIndex--;
     document.title=tabTitle.slice(0,titleIndex)+"▌";
     if(titleIndex<=0){
-      document.title="";
+      // Keep the browser tab title populated while the animation loops.
+      document.title=tabTitle+"▌";
       titleMode="typing";
       titleTimer=setTimeout(animateTabTitle,500);
       return;
