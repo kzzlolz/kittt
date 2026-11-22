@@ -105,9 +105,7 @@ h3{font-size:16px;margin-bottom:7px}
 .polaroid:nth-child(3){transform:rotate(-1deg);margin-top:4px}
 .polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
 .polaroid figcaption{text-align:center;font:italic 13px var(--serif);color:#806b60;margin-top:10px}
-.gallery-folder-note{display:flex;align-items:center;gap:12px;margin:30px 0 8px;padding:13px 16px;background:#f2e8dc;border:1px dashed #cbb4a3;color:#735f52}
-.gallery-folder-note>span{font-size:24px}.gallery-folder-note strong{display:block;font:13px var(--serif)}.gallery-folder-note small{display:block;margin-top:4px;font:10px var(--mono);color:#907d70}.gallery-folder-note code{background:#fffaf4;padding:2px 4px}
-.gallery-loading,.gallery-empty{grid-column:1/-1;font:11px var(--mono);color:#907d70;padding:18px 4px}
+.gallery-loading{grid-column:1/-1;font:11px var(--mono);color:#907d70;padding:18px 4px}
 .gallery-grid .polaroid:nth-child(3n+1){transform:rotate(-2deg)}.gallery-grid .polaroid:nth-child(3n+2){transform:rotate(2deg);margin-top:14px}.gallery-grid .polaroid:nth-child(3n){transform:rotate(-1deg);margin-top:4px}
 .social-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}
 .social-link{display:flex;align-items:center;gap:11px;text-decoration:none;background:#fffaf3;border:1px solid #e6d7c9;padding:13px;border-radius:4px;transition:.2s}
@@ -278,7 +276,6 @@ h3{font-size:16px;margin-bottom:7px}
             <figure class="polaroid"><img src="https://raw.githubusercontent.com/kzzlolz/kittt/main/gallery/wallpaper.jpg" alt="One of Kzz's cats"><figcaption>a favourite picture ♡</figcaption></figure>
             <figure class="polaroid"><img src="https://raw.githubusercontent.com/kzzlolz/kittt/main/01785d677dff87c729169c9797a905de.jpg" alt="Dreamy Cascade server icon"><figcaption>Dreamy Cascade ☁</figcaption></figure>
           </div>
-          <div class="gallery-folder-note"><span>📁</span><div><strong>my photo folder</strong><small>drop pictures into <code>/gallery</code> on GitHub — they'll appear here automatically ♡</small></div></div>
           <div class="gallery-grid" id="uploaded-gallery" aria-live="polite"><p class="gallery-loading">looking for new memories...</p></div>
         </section>
 
@@ -371,9 +368,7 @@ async function loadUploadedGallery(){
     const files=await response.json();
     const pictures=files.filter(file=>file.type==='file'&&/\\.(png|jpe?g|gif|webp|avif)$/i.test(file.name));
     grid.replaceChildren();
-    if(!pictures.length){
-      const empty=document.createElement('p');empty.className='gallery-empty';empty.textContent='no photos here just yet — add your first one to the gallery folder ♡';grid.append(empty);return;
-    }
+    if(!pictures.length) return;
     pictures.sort((a,b)=>a.name.localeCompare(b.name));
     pictures.forEach((file,index)=>{
       const figure=document.createElement('figure');figure.className='polaroid';
