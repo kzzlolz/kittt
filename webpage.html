@@ -12,7 +12,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/a63251e802ac0ddb324eff8318e16559.jpg">
 <meta property="og:url" content="https://kzzlolz.github.io/kittt/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" id="typewriterFavicon">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -307,16 +307,21 @@ h3{font-size:16px;margin-bottom:7px}
 
 <script>
 
-const favicon=document.getElementById("typewriterFavicon");
-const faviconText="@kzzlolz";
-let faviconIndex=0;
-function typeFavicon(){
-  const shown=faviconText.slice(0,faviconIndex);
-  const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="11" fill="#f7eee6"/><text x="32" y="36" text-anchor="middle" dominant-baseline="middle" font-family="Courier New,monospace" font-size="'+(shown.length>6?12:shown.length>4?15:19)+'" font-weight="bold" fill="#843f4a">'+shown+(faviconIndex<faviconText.length?'▌':'')+'</text></svg>';
-  favicon.href="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg);
-  faviconIndex=faviconIndex>=faviconText.length?0:faviconIndex+1;
+const tabTitle="@kzzlolz";
+let titleIndex=0;
+function typeTabTitle(){
+  titleIndex++;
+  document.title=tabTitle.slice(0,titleIndex)+(titleIndex<tabTitle.length?"▌":"");
+  if(titleIndex>=tabTitle.length){
+    clearInterval(titleTyping);
+    setTimeout(()=>{
+      titleIndex=0;
+      document.title="";
+      titleTyping=setInterval(typeTabTitle,240);
+    },1800);
+  }
 }
-typeFavicon();setInterval(typeFavicon,220);
+let titleTyping=setInterval(typeTabTitle,240);
 
 const welcome=document.getElementById('welcome');
 document.getElementById('openBook').addEventListener('click',()=>welcome.classList.add('hidden'));
