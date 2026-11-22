@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5e9df">
+<meta name="theme-color" content="#f5e9df">\n<link rel="icon" type="image/jpeg" href="https://i.ibb.co/vvHLZwKm/8ded2bceb5a09285ffc2dc9fee6a87b8.jpg">
 <title>Kzz's little corner ♡</title>
 <meta name="description" content="A little scrapbook of Kzz's projects, interests, and internet corners.">
 <meta property="og:type" content="website">
@@ -309,19 +309,33 @@ h3{font-size:16px;margin-bottom:7px}
 
 const tabTitle="@kzzlolz";
 let titleIndex=0;
-function typeTabTitle(){
-  titleIndex++;
-  document.title=tabTitle.slice(0,titleIndex)+(titleIndex<tabTitle.length?"▌":"");
-  if(titleIndex>=tabTitle.length){
-    clearInterval(titleTyping);
-    setTimeout(()=>{
-      titleIndex=0;
+let titleMode="typing";
+let titleTimer=null;
+function animateTabTitle(){
+  if(titleMode==="typing"){
+    titleIndex++;
+    document.title=tabTitle.slice(0,titleIndex)+"▌";
+    if(titleIndex>=tabTitle.length){
+      document.title=tabTitle;
+      titleMode="waiting";
+      titleTimer=setTimeout(animateTabTitle,1800);
+      return;
+    }
+  }else if(titleMode==="waiting"){
+    titleMode="deleting";
+  }else if(titleMode==="deleting"){
+    titleIndex--;
+    document.title=tabTitle.slice(0,titleIndex)+"▌";
+    if(titleIndex<=0){
       document.title="";
-      titleTyping=setInterval(typeTabTitle,240);
-    },1800);
+      titleMode="typing";
+      titleTimer=setTimeout(animateTabTitle,500);
+      return;
+    }
   }
+  titleTimer=setTimeout(animateTabTitle,titleMode==="typing"?240:120);
 }
-let titleTyping=setInterval(typeTabTitle,240);
+animateTabTitle();
 
 const welcome=document.getElementById('welcome');
 document.getElementById('openBook').addEventListener('click',()=>welcome.classList.add('hidden'));
