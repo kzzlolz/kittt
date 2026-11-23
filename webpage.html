@@ -330,6 +330,8 @@ function animateTabTitle(){
   }
   titleTimer=setTimeout(animateTabTitle,titleMode==="typing"?240:120);
 }
+// Start with the lone @, then type the handle character by character.
+document.title="@";
 animateTabTitle();
 
 const welcome=document.getElementById('welcome');
