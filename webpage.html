@@ -16,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,700;0,6..96,800;1,6..96,700;1,6..96,800&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#f7eee6;--paper2:#fffaf4;--ink:#332923;--muted:#87766d;--rose:#b85e68;
@@ -60,6 +60,7 @@ button{color:inherit}
 h1,h2,h3,p{margin-top:0}
 h1{font:700 clamp(36px,6vw,66px)/1.02 var(--serif);letter-spacing:-1.8px;margin-bottom:15px}
 h1 em{color:var(--rose);font-weight:600}
+.name-mark{font-family:"Bodoni Moda",serif;font-weight:800;font-style:italic;letter-spacing:-2.8px;color:var(--rose-dark);font-size:1.08em;text-shadow:1px 1px 0 #e8c4b9}
 h2{font:700 30px var(--serif);margin-bottom:9px}
 h3{font-size:16px;margin-bottom:7px}
 .lead{font-size:15px;line-height:1.8;color:#746158;max-width:620px}
@@ -173,6 +174,10 @@ h3{font-size:16px;margin-bottom:7px}
 
 <div class="site-shell">
   <aside class="sidebar">
+    <div class="brand-block">
+      <div class="brand">kzz<span>♡</span></div>
+      <div class="brand-sub">personal scrapbook</div>
+    </div>
     <div class="side-avatar-wrap">
       <img class="side-avatar" src="https://raw.githubusercontent.com/kzzlolz/kittt/refs/heads/main/a63251e802ac0ddb324eff8318e16559.jpg" alt="Kzz's avatar">
       <span class="avatar-star">✦</span>
@@ -201,7 +206,7 @@ h3{font-size:16px;margin-bottom:7px}
           <div class="hero">
             <div class="hero-copy">
               <div class="eyebrow">✦ a page about me, mostly</div>
-              <h1>Hello, I’m Kzz</h1>
+              <h1>Hello, I’m <span class="name-mark">Kzz</span></h1>
               <p class="lead">Not really extroverted, but welcome I guess...</p>
               <div class="actions">
                 <button class="action" data-go="about">get to know me ↗</button>
