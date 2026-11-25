@@ -121,13 +121,25 @@ h3{font-size:16px;margin-bottom:7px}
 .clock-pill{background:#fffaf3;border:1px solid #e6d7c9;padding:9px 12px;font:10px var(--mono);color:#806b60}
 .clock-pill strong{color:var(--rose-dark)}
 .footer-note{text-align:center;margin:24px 0 2px;color:#a18c7f;font:10px var(--mono);letter-spacing:1px}
-.welcome{position:fixed;inset:0;z-index:10;background:#e9dcd1ee;display:grid;place-items:center;padding:20px;transition:opacity .5s,visibility .5s}
+.welcome{position:fixed;inset:0;z-index:10;background:rgba(233,220,209,.96);display:grid;place-items:center;padding:20px;perspective:1400px;transition:opacity .65s,visibility .65s}
+.welcome:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.32;background-image:radial-gradient(rgba(95,65,52,.2) .7px,transparent .7px);background-size:7px 7px}
 .welcome.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.welcome-card{max-width:450px;width:100%;background:#fffaf3;padding:38px 30px;text-align:center;border:1px solid #dfcfc2;box-shadow:var(--shadow);transform:rotate(-1deg);position:relative}
-.welcome-card:before{content:"";position:absolute;width:90px;height:22px;background:#e7b7a6bd;top:-10px;left:calc(50% - 45px);transform:rotate(-4deg)}
-.welcome-card h1{font-size:45px;margin:12px 0}
-.welcome-card p{font:italic 16px/1.6 var(--serif);color:#806b60}
-.welcome-card button{margin-top:12px}
+.welcome-card{max-width:490px;width:100%;min-height:440px;background:#fffaf3;padding:68px 42px 30px;text-align:center;border:1px solid #dfcfc2;box-shadow:0 28px 75px rgba(67,42,34,.2),inset 0 0 0 7px rgba(238,225,213,.55);transform:rotate(-1.2deg);position:relative;overflow:hidden;transition:transform .65s cubic-bezier(.2,.8,.2,1),opacity .55s}
+.welcome-card:after{content:"";position:absolute;inset:17px;border:1px dashed #e4d2c5;pointer-events:none}
+.welcome-card.opening{transform:rotateY(-22deg) rotateZ(2deg) scale(.94);opacity:.25}
+.welcome-tape{position:absolute;width:116px;height:30px;background:rgba(231,183,166,.72);top:13px;left:50%;transform:translateX(-50%) rotate(-4deg);z-index:2;box-shadow:0 2px 5px #684a4015}
+.welcome-kicker{font:10px var(--mono);letter-spacing:3px;color:var(--rose-dark);margin-bottom:34px;position:relative;z-index:1}
+.welcome-card h1{font:700 clamp(37px,7vw,54px)/1.08 var(--serif);letter-spacing:-1.5px;margin:0 0 17px;position:relative;z-index:1}
+.welcome-card h1 em{color:var(--rose);font-weight:600}
+.welcome-card p{font:italic 16px/1.8 var(--serif);color:#806b60;max-width:315px;margin:0 auto;position:relative;z-index:1}
+.welcome-card button{margin-top:30px;min-width:155px;gap:13px;position:relative;z-index:1}
+.welcome-card button span{font-size:15px}
+.welcome-stamp{position:absolute;right:35px;top:78px;width:62px;height:62px;border:1px solid #dcbab0;border-radius:50%;display:grid;place-content:center;color:#b47770;font:italic 10px/1.25 var(--serif);transform:rotate(12deg);z-index:1}
+.welcome-sparkle{position:absolute;color:#c58b80;z-index:1}
+.welcome-sparkle-one{left:43px;top:155px;font-size:24px}
+.welcome-sparkle-two{right:57px;bottom:112px;font-size:27px}
+.welcome-bottom{position:absolute;bottom:27px;left:0;right:0;font:9px var(--mono);letter-spacing:2px;color:#b09a8d;z-index:1}
+@media(max-width:560px){.welcome-card{min-height:405px;padding:66px 25px 30px}.welcome-stamp{right:22px;top:74px;width:52px;height:52px;font-size:9px}.welcome-sparkle-one{left:23px}.welcome-sparkle-two{right:28px}}
 .mobile-brand{display:none}
 @media(max-width:850px){
  .site-shell{grid-template-columns:1fr;width:min(720px,calc(100% - 26px));margin:14px auto 90px;gap:13px}
@@ -164,10 +176,15 @@ h3{font-size:16px;margin-bottom:7px}
 <body>
 <div class="welcome" id="welcome">
   <div class="welcome-card">
-    <h1>My Scrapbook</h1>
-    <p>Hi, <em>stranger</em>.</p>
-    <button class="action" type="button" id="openBook">flip open</button>
-    <div class="side-footer" style="border-top:0;padding-top:14px;margin-top:18px">© 2026 Kzz</div>
+    <span class="welcome-tape" aria-hidden="true"></span>
+    <div class="welcome-kicker">PERSONAL SCRAPBOOK</div>
+    <div class="welcome-sparkle welcome-sparkle-one" aria-hidden="true">✳</div>
+    <div class="welcome-sparkle welcome-sparkle-two" aria-hidden="true">✧</div>
+    <div class="welcome-stamp" aria-hidden="true">little<br>moments</div>
+    <h1>A little corner<br><em>of the internet.</em></h1>
+    <p>A collection of little things, favourite places, and pieces of my world.</p>
+    <button class="action" type="button" id="openBook">flip open <span aria-hidden="true">↗</span></button>
+    <div class="welcome-bottom"><span>✦ &nbsp; turn the page &nbsp; ✦</span></div>
   </div>
 </div>
 
@@ -338,7 +355,11 @@ document.title="@";
 animateTabTitle();
 
 const welcome=document.getElementById('welcome');
-document.getElementById('openBook').addEventListener('click',()=>welcome.classList.add('hidden'));
+document.getElementById('openBook').addEventListener('click',()=>{
+  const cover=document.querySelector('.welcome-card');
+  cover.classList.add('opening');
+  window.setTimeout(()=>welcome.classList.add('hidden'),420);
+});
 const tabs=[...document.querySelectorAll('.tab')];
 const navButtons=[...document.querySelectorAll('.nav button')];
 function showTab(name){
