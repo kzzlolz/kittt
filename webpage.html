@@ -21,21 +21,27 @@
 html{min-height:100%;background:var(--bg)}
 body{margin:0;min-height:100vh;display:grid;place-items:center;padding:36px 18px;color:var(--text);font-family:var(--sans);background:radial-gradient(ellipse at 50% 0%,#a51f43a8 0,transparent 48%),radial-gradient(ellipse at 95% 90%,#64152d88 0,transparent 42%),linear-gradient(145deg,#19070d,#310b16 55%,#17060c);overflow-x:hidden}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.23;background-image:radial-gradient(#ffc1d0 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
-.profile{position:relative;z-index:1;width:min(100%,440px);display:flex;flex-direction:column;align-items:center;text-align:center;padding:36px 30px 28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#65162cdd 0%,#35101ff2 48%,#210b15f5 100%);box-shadow:0 24px 80px #0009,0 0 45px #a51f4330,inset 0 1px #ffdbe51c;backdrop-filter:blur(14px);animation:arrive .75s ease both}
+.profile{position:relative;z-index:1;width:min(100%,460px);display:flex;flex-direction:column;align-items:center;text-align:center;padding:39px 32px 30px;border:1px solid #ff9bb866;border-radius:26px;background:radial-gradient(ellipse at 50% -10%,#ff668333,transparent 55%),linear-gradient(145deg,#74172fef 0%,#481126f5 42%,#240b17f7 100%);box-shadow:0 28px 90px #000b,0 0 65px #d52c5b35,inset 0 1px #fff3;backdrop-filter:blur(16px);animation:arrive .75s ease both}
+.profile:before{content:"";position:absolute;inset:8px;border:1px solid #ffb6c31c;border-radius:19px;pointer-events:none}
+.profile:after{content:"✦  ✧  ✦";position:absolute;top:17px;right:23px;color:#ffb3c7a8;font-size:12px;letter-spacing:7px;pointer-events:none}
 @keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .avatar-wrap{position:relative;width:190px;height:190px;margin:0 auto 19px;display:grid;place-items:center}
-.avatar{position:relative;z-index:1;width:140px;height:140px;object-fit:cover;border-radius:50%;border:3px solid #ffe0e8;box-shadow:0 10px 35px #0009,0 0 24px #ff426b66}
+.avatar{position:relative;z-index:1;width:140px;height:140px;object-fit:cover;border-radius:50%;border:3px solid #ffe0e8;box-shadow:0 10px 35px #0009,0 0 24px #ff426b99,0 0 0 7px #ff8eaa18}
 .avatar-decoration{position:absolute;z-index:2;width:190px;height:190px;inset:0;object-fit:contain;pointer-events:none;filter:drop-shadow(0 0 15px #ff456e99)}
-h1{font:700 32px/1.1 var(--serif);letter-spacing:.3px;margin:0 0 8px;color:#fff0f3}
+h1{font:700 35px/1.1 var(--serif);letter-spacing:.4px;margin:0 0 10px;color:#fff4f6;text-shadow:0 3px 24px #ff718d55}
 
-.bio{display:grid;gap:9px;color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 22px}
+.bio{display:grid;gap:9px;color:#f0c5d0;font-size:13px;line-height:1.65;margin:0 0 23px}
 .bio p{margin:0}
 .midnight{color:#f2ddec}
-.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;width:100%;margin:0 0 22px}
-.social{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#eee5ee;background:linear-gradient(135deg,#a51f432b,#ff718d12);border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-size:11px;font-weight:600;transition:transform .2s,border-color .2s,background .2s}
-.social:hover{transform:translateY(-2px);border-color:#ff718dcc;background:#ff718d26}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%;margin:2px 0 25px}
+.social{position:relative;display:grid;place-items:center;width:46px;height:46px;text-decoration:none;color:#ffe8ee;background:linear-gradient(145deg,#ff78952e,#9d173b40);border:1px solid #ff9bb855;border-radius:15px;box-shadow:inset 0 1px #fff2,0 7px 18px #08020755;transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}
+.social svg{width:21px;height:21px;display:block;fill:currentColor}
+.social:hover,.social:focus-visible{transform:translateY(-5px) scale(1.07);outline:none;border-color:#ffb4c8;background:linear-gradient(145deg,#ff789566,#d52c5b66);box-shadow:0 9px 24px #ff426b45,inset 0 1px #fff5}
+.social:focus-visible{outline:2px solid #ffd5df;outline-offset:4px}
+.social:after{content:attr(data-label);position:absolute;left:50%;bottom:calc(100% + 9px);transform:translate(-50%,4px);padding:5px 8px;border:1px solid #ff9bb866;border-radius:7px;background:#260914;color:#ffe8ee;font:10px var(--mono);white-space:nowrap;opacity:0;pointer-events:none;transition:.18s ease}
+.social:hover:after,.social:focus-visible:after{opacity:1;transform:translate(-50%,0)}
 .social span{font-size:14px}
-.music{width:100%;padding:14px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,#7d1a362b,#ffffff05);text-align:left}
+.music{width:100%;padding:15px;border:1px solid #ff9bb84d;border-radius:17px;background:linear-gradient(135deg,#a51f433d,#ff789510 65%,#ffffff08);box-shadow:inset 0 1px #fff2,0 10px 28px #0004;text-align:left}
 .music-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:9px}
 .music-heading strong{font:10px var(--mono);letter-spacing:1.4px;text-transform:uppercase;color:#ffd0dc}
 .music-heading span{font-size:13px;color:var(--accent)}
@@ -59,13 +65,13 @@ h1{font:700 32px/1.1 var(--serif);letter-spacing:.3px;margin:0 0 8px;color:#fff0
     <p>I love my brother so much</p>
   </div>
   <nav class="socials" aria-label="Social links">
-    <a class="social" href="https://www.roblox.com/users/3995400998/profile" target="_blank" rel="noopener noreferrer"><span>🎲</span>Roblox</a>
-    <a class="social" href="https://www.twitch.tv/1kittykats1" target="_blank" rel="noopener noreferrer"><span>🟣</span>Twitch</a>
-    <a class="social" href="https://discord.com/users/1209411379178635345" target="_blank" rel="noopener noreferrer"><span>💬</span>Discord</a>
-    <a class="social" href="https://profile.playstation.com/Kzz_lolz" target="_blank" rel="noopener noreferrer"><span>🎮</span>PlayStation</a>
-    <a class="social" href="https://open.spotify.com/user/315jqfwhxu7is2i27z2ortr7r57q" target="_blank" rel="noopener noreferrer"><span>🎵</span>Spotify</a>
-    <a class="social" href="https://steamcommunity.com/id/1kittykats1/" target="_blank" rel="noopener noreferrer"><span>🕹️</span>Steam</a>
-    <a class="social" href="https://www.ubisoft.com/" target="_blank" rel="noopener noreferrer"><span>🌐</span>Ubisoft</a>
+    <a class="social" data-label="Roblox" aria-label="Roblox" href="https://www.roblox.com/users/3995400998/profile" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 2.2 22 5.1l-2.9 16.7L2.3 19 5.2 2.2Zm5.1 6.1-1 5.5 5.5 1 1-5.5-5.5-1Z"/></svg></a>
+    <a class="social" data-label="Twitch" aria-label="Twitch" href="https://www.twitch.tv/1kittykats1" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h18v13l-5 5h-4l-3 3H7v-3H2V6l2-4Zm1 2L4 7v11h5v3l3-3h5l3-3V4H5Zm5 3h2v6h-2V7Zm5 0h2v6h-2V7Z"/></svg></a>
+    <a class="social" data-label="Discord" aria-label="Discord" href="https://discord.com/users/1209411379178635345" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.7 5.2A18 18 0 0 0 15.3 4l-.5 1a16 16 0 0 0-5.6 0l-.5-1a18 18 0 0 0-4.4 1.2C1.5 9.3.8 13.3 1.2 17.2a18 18 0 0 0 5.4 2.7l1.2-2a11 11 0 0 1-1.9-.9l.5-.4a13 13 0 0 0 11.2 0l.5.4a11 11 0 0 1-1.9.9l1.2 2a18 18 0 0 0 5.4-2.7c.5-4.5-.8-8.5-3.1-12ZM8.7 14.8c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg></a>
+    <a class="social" data-label="PlayStation" aria-label="PlayStation" href="https://profile.playstation.com/Kzz_lolz" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5v17.7l4 1.3V6.1c0-.8.3-1.3.9-1.1.7.2.8.9.8 1.7v5.4c2.5 1.2 4.5 0 4.5-3.1 0-3.2-1.1-4.6-4.4-5.7L8 2.5ZM3 16.5c-2.2.7-2.5 2.1-.8 2.8 1.5.6 3.7.6 5.8.1v-2.1l-2.3.8c-.9.3-1.7.2-1.7-.3 0-.4.6-.8 1.4-1l2.6-.9v-2.2l-5 1.8Zm12.5 2.8 5.3-1.9c2.1-.7 2.4-2 .7-2.7-1.5-.6-3.6-.6-5.7-.1v2.1l2.2-.8c.9-.3 1.7-.2 1.7.3 0 .4-.6.8-1.4 1l-2.8 1v1.1Z"/></svg></a>
+    <a class="social" data-label="Spotify" aria-label="Spotify" href="https://open.spotify.com/user/315jqfwhxu7is2i27z2ortr7r57q" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5A10.5 10.5 0 1 0 12 22.5 10.5 10.5 0 0 0 12 1.5Zm4.8 15.1a.8.8 0 0 1-1.1.3c-2.8-1.7-6.3-2.1-10.4-1.1a.8.8 0 1 1-.4-1.5c4.5-1.1 8.4-.7 11.6 1.3.4.2.5.7.3 1Zm1.3-2.9a1 1 0 0 1-1.3.3c-3.2-2-8-2.6-11.7-1.4a1 1 0 1 1-.6-1.8c4.3-1.3 9.6-.7 13.2 1.5.5.3.7.9.4 1.4Zm.1-3c-3.8-2.3-10.1-2.5-13.7-1.4a1.1 1.1 0 1 1-.7-2.1c4.2-1.3 11.1-1 15.5 1.6a1.1 1.1 0 0 1-1.1 1.9Z"/></svg></a>
+    <a class="social" data-label="Steam" aria-label="Steam" href="https://steamcommunity.com/id/1kittykats1/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-9.9 8.5l5.3 2.2a3.5 3.5 0 0 1 2-.6l2.4-3.5v-.2a4.2 4.2 0 1 1 4.2 4.2h-.1l-3.5 2.5a3.5 3.5 0 0 1-6.9.6l-3.8-1.6A10 10 0 1 0 12 2Zm4 9.1a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4ZM9.4 17.7a1.8 1.8 0 0 0 1.6-1l-2.4-1a1.8 1.8 0 0 0 .8 2Z"/></svg></a>
+    <a class="social" data-label="Ubisoft" aria-label="Ubisoft" href="https://www.ubisoft.com/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 6.2 2 11.5 2 17.4 6.7 22 12.4 22c4.2 0 7.4-2.3 8.7-5.9-1.8 2.2-4.4 3.4-7.3 3.4-4.8 0-8.4-3.4-8.4-8 0-4.1 3.1-7.2 7.1-7.2 2.6 0 4.7 1.3 5.9 3.3C17 4.1 14.8 2 12 2Zm-.2 5.1c-2.7 0-4.8 2-4.8 4.6s2.1 4.6 4.8 4.6c2.4 0 4.3-1.6 4.7-3.9-.9 1.2-2.2 1.8-3.7 1.8-2.1 0-3.6-1.2-3.6-3 0-1.7 1.4-2.9 3.3-2.9.9 0 1.7.3 2.4.9-.6-1.3-1.7-2.1-3.1-2.1Z"/></svg></a>
   </nav>
   <section class="music" aria-label="Music player">
     <div class="music-heading"><strong>currently listening ♫</strong><span>♪</span></div>
